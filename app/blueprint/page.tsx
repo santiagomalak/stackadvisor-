@@ -25,10 +25,10 @@ const FAQS = [
   { q: '¿Por qué hay precio LATAM y global?',       a: 'Queremos que el Blueprint sea accesible para devs de toda Latinoamérica. El precio se detecta automáticamente según tu ubicación.' },
 ];
 
-type GeoData = { isLatam: boolean; price: number; label: string; variantId: string };
+type GeoData = { isLatam: boolean; price: number; label: string; checkoutGlobal: string; checkoutLatam: string };
 
 export default function BlueprintPage() {
-  const [geo, setGeo] = useState<GeoData>({ isLatam: false, price: 40, label: 'Precio global', variantId: VARIANT_GLOBAL });
+  const [geo, setGeo] = useState<GeoData>({ isLatam: false, price: 40, label: 'Precio global', checkoutGlobal: '', checkoutLatam: '' });
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [manualLatam, setManualLatam] = useState<boolean | null>(null);
 
@@ -41,9 +41,7 @@ export default function BlueprintPage() {
 
   const isLatam = manualLatam !== null ? manualLatam : geo.isLatam;
   const price = isLatam ? 30 : 40;
-  const variantId = isLatam ? VARIANT_LATAM : VARIANT_GLOBAL;
-  const redirectUrl = encodeURIComponent('https://stackadvisor-nu.vercel.app/blueprint/success');
-  const checkoutUrl = `https://stackadvisor.lemonsqueezy.com/checkout/buy/${variantId}?embed=1&media=0&logo=0&redirect_url=${redirectUrl}`;
+  const checkoutUrl = isLatam ? geo.checkoutLatam : geo.checkoutGlobal;
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-slate-900">

@@ -210,7 +210,7 @@ ${primary.matchReasons.map((r) => `• ${r}`).join('\n')}
 Costo estimado: ${primary.stack.estimatedCost}
 Tiempo de setup: ${primary.stack.setupTime}
 
-Obtén tu recomendación gratis en: stackadvisor.vercel.app`;
+Obtén tu recomendación gratis en: stackadvisor-nu.vercel.app`;
 
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true);

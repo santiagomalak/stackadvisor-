@@ -21,7 +21,9 @@
       "Bash(node -e \":*)",
       "Bash(node:*)",
       "Bash(vercel link:*)",
-      "Bash(vercel env:*)"
+      "Bash(vercel env:*)",
+      "Bash(gh run:*)",
+      "Bash(npx tsc:*)"
     ]
   }
 }

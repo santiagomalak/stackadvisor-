@@ -176,18 +176,23 @@ export default function PromptGenerator({ stack, userProfile }: Props) {
   const [copied, setCopied] = useState(false);
   const [isLatam, setIsLatam] = useState(false);
   const [manualLatam, setManualLatam] = useState<boolean | null>(null);
+  const [checkoutGlobal, setCheckoutGlobal] = useState('');
+  const [checkoutLatam, setCheckoutLatam] = useState('');
 
   useEffect(() => {
     fetch('/api/geo')
       .then(r => r.json())
-      .then((data: { isLatam: boolean }) => setIsLatam(data.isLatam))
+      .then((data: { isLatam: boolean; checkoutGlobal: string; checkoutLatam: string }) => {
+        setIsLatam(data.isLatam);
+        setCheckoutGlobal(data.checkoutGlobal || '');
+        setCheckoutLatam(data.checkoutLatam || '');
+      })
       .catch(() => {});
   }, []);
 
   const effectiveLatam = manualLatam !== null ? manualLatam : isLatam;
   const price = effectiveLatam ? 30 : 40;
-  const variantId = effectiveLatam ? VARIANT_LATAM : VARIANT_GLOBAL;
-  const checkoutUrl = `https://stackadvisor.lemonsqueezy.com/checkout/buy/${variantId}?embed=1&media=0&logo=0`;
+  const checkoutUrl = effectiveLatam ? checkoutLatam : checkoutGlobal;
 
   const prompts = buildPrompts(stack, userProfile);
   const tabs = Object.keys(PROMPT_META) as PromptKey[];
