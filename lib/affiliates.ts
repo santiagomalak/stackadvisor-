@@ -50,12 +50,12 @@ export const AFFILIATES: Record<AffiliateKey, AffiliateConfig> = {
   },
   digitalocean: {
     name: 'DigitalOcean',
-    url: 'https://www.digitalocean.com/?refcode=YOUR_CODE',
+    url: 'https://www.digitalocean.com/?refcode=c86331ecbfb7',
     cta: 'Obtener $200 de crédito →',
     badge: '$200 gratis',
     description: '60 días de crédito gratuito para nuevos usuarios.',
     logo: '🌊',
-    active: false,
+    active: true,
   },
   render: {
     name: 'Render',
