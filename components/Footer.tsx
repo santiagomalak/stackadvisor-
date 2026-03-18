@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -11,16 +10,13 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="md:col-span-1">
-            <Link href="/" className="flex items-center mb-3 w-fit group">
-              <div className="bg-slate-900 dark:bg-transparent rounded-xl px-2 py-1">
-                <Image
-                  src="/logo.png"
-                  alt="StackAdvisor"
-                  width={150}
-                  height={38}
-                  className="h-8 w-auto object-contain group-hover:opacity-80 transition-opacity"
-                />
+            <Link href="/" className="flex items-center gap-2 mb-3 group w-fit">
+              <div className="w-8 h-8 bg-gradient-to-br from-primary to-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-sm group-hover:scale-110 transition-transform">
+                S
               </div>
+              <span className="font-bold text-gray-900 dark:text-white text-lg">
+                Stack<span className="text-primary">Advisor</span>
+              </span>
             </Link>
             <p className="text-sm text-gray-500 dark:text-slate-400 leading-relaxed">
               El motor de recomendación de tech stacks para startups y devs independientes.
