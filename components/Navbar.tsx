@@ -13,6 +13,7 @@ export default function Navbar() {
   const navLinks = [
     { href: '/stacks', label: 'Explorar stacks' },
     { href: '/compare', label: 'Comparar' },
+    { href: '/blueprint', label: '🏗️ Blueprint' },
   ];
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/');

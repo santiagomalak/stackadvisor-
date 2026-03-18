@@ -53,6 +53,7 @@ export default function Footer() {
                 { href: '/questionnaire', label: 'Cuestionario' },
                 { href: '/results', label: 'Ver resultados' },
                 { href: '/compare', label: 'Comparador' },
+                { href: '/blueprint', label: '🏗️ Blueprint premium' },
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link

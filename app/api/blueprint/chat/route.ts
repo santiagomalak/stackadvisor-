@@ -22,20 +22,30 @@ export async function POST(request: NextRequest) {
 
     const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
-    const systemContext = `Sos un experto en desarrollo de software y arquitectura de sistemas.
-Tenés acceso al Blueprint completo del proyecto del cliente y a sus respuestas del cuestionario.
-Tu rol es ayudarlo a implementar su proyecto paso a paso, responder dudas técnicas específicas y guiarlo cuando se trabe.
-Respondé siempre en español, de forma clara, directa y con ejemplos de código cuando sea relevante.
-Máximo 3 párrafos por respuesta + código si aplica. No des vueltas.
+    const systemContext = `Sos un experto en desarrollo de software y arquitectura de sistemas, especializado en ayudar a devs independientes y startups a implementar sus proyectos.
 
-=== BLUEPRINT DEL PROYECTO ===
-${blueprint ? blueprint.slice(0, 3000) : 'No disponible'}
+Tu rol: ayudar a implementar el proyecto paso a paso, resolver dudas técnicas concretas, dar código funcional cuando se pide, y guiar cuando se trabe.
+
+Reglas de respuesta:
+- Siempre en español
+- Directo al punto, sin introducción innecesaria
+- Si la pregunta es técnica, incluí código concreto (no pseudocódigo)
+- Si hay varias opciones, recomendá una y justificá brevemente
+- Máximo 3-4 párrafos de texto, sin límite en el código
+- Usá el contexto del Blueprint para dar respuestas específicas al proyecto, no genéricas
+
+=== BLUEPRINT DEL PROYECTO (resumen) ===
+${blueprint ? blueprint.slice(0, 4000) : 'No disponible'}
 
 === DATOS DEL PROYECTO ===
 Nombre: ${answers?.project_name || 'No especificado'}
-Stack: ${answers?.platform || 'No especificado'}
-Nivel del dev: ${answers?.existing_code || 'No especificado'}
-Horas/semana: ${answers?.dev_hours || 'No especificado'}`;
+Plataforma: ${answers?.platform || 'No especificado'}
+Estado del código: ${answers?.existing_code || 'No especificado'}
+Equipo: ${answers?.team || 'No especificado'}
+Horas/semana: ${answers?.dev_hours || 'No especificado'}
+Presupuesto infra: ${answers?.infra_budget || 'No especificado'}
+Pagos: ${answers?.payments || 'No'} - ${answers?.payment_platform || ''}
+Autenticación: ${answers?.auth_type || 'No especificado'}`;
 
     // Build chat history for context
     const chatHistory = (history || []).slice(-10).map((msg: any) => ({

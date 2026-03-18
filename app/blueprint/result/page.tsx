@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
@@ -11,23 +11,130 @@ interface Message {
   content: string;
 }
 
+function parseInline(text: string): React.ReactNode[] {
+  const parts = text.split(/(\*\*[^*]+\*\*|`[^`]+`|\*[^*]+\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**'))
+      return <strong key={i} className="font-semibold text-gray-900 dark:text-white">{part.slice(2, -2)}</strong>;
+    if (part.startsWith('`') && part.endsWith('`'))
+      return <code key={i} className="font-mono text-xs bg-slate-100 dark:bg-slate-700 text-primary px-1.5 py-0.5 rounded">{part.slice(1, -1)}</code>;
+    if (part.startsWith('*') && part.endsWith('*'))
+      return <em key={i}>{part.slice(1, -1)}</em>;
+    return part;
+  });
+}
+
 function BlueprintMarkdown({ content }: { content: string }) {
-  // Simple markdown renderer for the blueprint
   const lines = content.split('\n');
-  return (
-    <div className="prose prose-sm dark:prose-invert max-w-none">
-      {lines.map((line, i) => {
-        if (line.startsWith('# '))  return <h1 key={i} className="text-2xl font-black text-gray-900 dark:text-white mt-6 mb-3">{line.slice(2)}</h1>;
-        if (line.startsWith('## ')) return <h2 key={i} className="text-lg font-bold text-primary mt-6 mb-2 pb-1 border-b border-gray-200 dark:border-slate-600">{line.slice(3)}</h2>;
-        if (line.startsWith('### ')) return <h3 key={i} className="text-base font-bold text-gray-800 dark:text-slate-200 mt-4 mb-1">{line.slice(4)}</h3>;
-        if (line.startsWith('```')) return <div key={i} className="font-mono text-xs bg-slate-900 text-green-400 px-1 py-0.5 rounded">{line}</div>;
-        if (line.startsWith('- ') || line.startsWith('* ')) return <li key={i} className="ml-4 text-gray-700 dark:text-slate-300 text-sm">{line.slice(2)}</li>;
-        if (line.match(/^\d+\./)) return <li key={i} className="ml-4 text-gray-700 dark:text-slate-300 text-sm list-decimal">{line.slice(line.indexOf('.') + 2)}</li>;
-        if (line.trim() === '') return <br key={i} />;
-        return <p key={i} className="text-gray-700 dark:text-slate-300 text-sm leading-relaxed">{line}</p>;
-      })}
-    </div>
-  );
+  const elements: React.ReactNode[] = [];
+  let i = 0;
+
+  while (i < lines.length) {
+    const line = lines[i];
+
+    // Code block
+    if (line.startsWith('```')) {
+      const lang = line.slice(3).trim();
+      const codeLines: string[] = [];
+      i++;
+      while (i < lines.length && !lines[i].startsWith('```')) {
+        codeLines.push(lines[i]);
+        i++;
+      }
+      elements.push(
+        <div key={i} className="my-3 rounded-xl overflow-hidden border border-slate-700">
+          {lang && <div className="bg-slate-800 text-slate-400 text-xs px-4 py-1.5 font-mono">{lang}</div>}
+          <pre className="bg-slate-900 text-green-400 text-xs font-mono p-4 overflow-x-auto leading-relaxed">
+            {codeLines.join('\n')}
+          </pre>
+        </div>
+      );
+      i++;
+      continue;
+    }
+
+    if (line.startsWith('# ')) {
+      elements.push(<h1 key={i} className="text-2xl font-black text-gray-900 dark:text-white mt-8 mb-3">{parseInline(line.slice(2))}</h1>);
+    } else if (line.startsWith('## ')) {
+      elements.push(<h2 key={i} className="text-lg font-bold text-primary mt-7 mb-3 pb-1 border-b border-gray-200 dark:border-slate-600">{parseInline(line.slice(3))}</h2>);
+    } else if (line.startsWith('### ')) {
+      elements.push(<h3 key={i} className="text-base font-bold text-gray-800 dark:text-slate-200 mt-5 mb-1.5">{parseInline(line.slice(4))}</h3>);
+    } else if (line.startsWith('#### ')) {
+      elements.push(<h4 key={i} className="text-sm font-bold text-gray-700 dark:text-slate-300 mt-3 mb-1">{parseInline(line.slice(5))}</h4>);
+    } else if (line.startsWith('- ') || line.startsWith('* ')) {
+      elements.push(
+        <div key={i} className="flex gap-2 items-start ml-2 my-0.5">
+          <span className="text-primary font-bold mt-0.5 flex-shrink-0">•</span>
+          <span className="text-gray-700 dark:text-slate-300 text-sm leading-relaxed">{parseInline(line.slice(2))}</span>
+        </div>
+      );
+    } else if (line.match(/^\d+\./)) {
+      const num = line.match(/^(\d+)\./)?.[1];
+      const rest = line.slice(line.indexOf('.') + 2);
+      elements.push(
+        <div key={i} className="flex gap-2 items-start ml-2 my-0.5">
+          <span className="text-primary font-bold text-xs mt-0.5 flex-shrink-0 w-4">{num}.</span>
+          <span className="text-gray-700 dark:text-slate-300 text-sm leading-relaxed">{parseInline(rest)}</span>
+        </div>
+      );
+    } else if (line.trim() === '') {
+      elements.push(<div key={i} className="h-2" />);
+    } else if (line.startsWith('---')) {
+      elements.push(<hr key={i} className="border-gray-200 dark:border-slate-600 my-4" />);
+    } else {
+      elements.push(<p key={i} className="text-gray-700 dark:text-slate-300 text-sm leading-relaxed my-0.5">{parseInline(line)}</p>);
+    }
+    i++;
+  }
+
+  return <div className="max-w-none space-y-0.5">{elements}</div>;
+}
+
+function ChatMarkdown({ content }: { content: string }) {
+  const lines = content.split('\n');
+  const elements: React.ReactNode[] = [];
+  let i = 0;
+  while (i < lines.length) {
+    const line = lines[i];
+    if (line.startsWith('```')) {
+      const codeLines: string[] = [];
+      i++;
+      while (i < lines.length && !lines[i].startsWith('```')) {
+        codeLines.push(lines[i]);
+        i++;
+      }
+      elements.push(
+        <pre key={i} className="bg-slate-800 text-green-400 text-xs font-mono p-3 rounded-lg overflow-x-auto my-2 leading-relaxed">
+          {codeLines.join('\n')}
+        </pre>
+      );
+    } else if (line.startsWith('### ')) {
+      elements.push(<p key={i} className="font-bold mt-2">{parseInline(line.slice(4))}</p>);
+    } else if (line.startsWith('## ')) {
+      elements.push(<p key={i} className="font-bold mt-2">{parseInline(line.slice(3))}</p>);
+    } else if (line.startsWith('- ') || line.startsWith('* ')) {
+      elements.push(
+        <div key={i} className="flex gap-1.5 items-start ml-1">
+          <span className="font-bold mt-0.5 flex-shrink-0">•</span>
+          <span>{parseInline(line.slice(2))}</span>
+        </div>
+      );
+    } else if (line.match(/^\d+\./)) {
+      const num = line.match(/^(\d+)\./)?.[1];
+      elements.push(
+        <div key={i} className="flex gap-1.5 items-start ml-1">
+          <span className="font-bold text-xs mt-0.5 flex-shrink-0">{num}.</span>
+          <span>{parseInline(line.slice(line.indexOf('.') + 2))}</span>
+        </div>
+      );
+    } else if (line.trim() === '') {
+      elements.push(<div key={i} className="h-1.5" />);
+    } else {
+      elements.push(<span key={i} className="block">{parseInline(line)}</span>);
+    }
+    i++;
+  }
+  return <div className="space-y-0.5">{elements}</div>;
 }
 
 export default function BlueprintResultPage() {
@@ -217,7 +324,7 @@ export default function BlueprintResultPage() {
                       ? 'bg-primary text-white rounded-tr-sm'
                       : 'bg-gray-50 dark:bg-slate-700 text-gray-800 dark:text-slate-200 rounded-tl-sm'
                   }`}>
-                    {msg.content}
+                    {msg.role === 'ai' ? <ChatMarkdown content={msg.content} /> : msg.content}
                   </div>
                 </div>
               ))}

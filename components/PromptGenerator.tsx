@@ -1,7 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+
+const VARIANT_GLOBAL = '0b4b596e-15a4-49e7-a6a2-8f06cabb3286';
+const VARIANT_LATAM  = '9542ec0d-60aa-4d07-8922-552b1e4e1638';
 
 interface Stack {
   id: string;
@@ -171,6 +174,20 @@ Soy ${experience}. Dame los comandos exactos, no explicaciones genéricas.`;
 export default function PromptGenerator({ stack, userProfile }: Props) {
   const [activeTab, setActiveTab] = useState<PromptKey>('kickstart');
   const [copied, setCopied] = useState(false);
+  const [isLatam, setIsLatam] = useState(false);
+  const [manualLatam, setManualLatam] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    fetch('/api/geo')
+      .then(r => r.json())
+      .then((data: { isLatam: boolean }) => setIsLatam(data.isLatam))
+      .catch(() => {});
+  }, []);
+
+  const effectiveLatam = manualLatam !== null ? manualLatam : isLatam;
+  const price = effectiveLatam ? 30 : 40;
+  const variantId = effectiveLatam ? VARIANT_LATAM : VARIANT_GLOBAL;
+  const checkoutUrl = `https://stackadvisor.lemonsqueezy.com/checkout/buy/${variantId}?embed=1&media=0&logo=0`;
 
   const prompts = buildPrompts(stack, userProfile);
   const tabs = Object.keys(PROMPT_META) as PromptKey[];
@@ -296,17 +313,31 @@ export default function PromptGenerator({ stack, userProfile }: Props) {
           </div>
 
           <div className="text-center flex-shrink-0">
-            <div className="text-3xl font-black text-gray-900 dark:text-white mb-1">
-              $49 <span className="text-base font-normal text-gray-400">USD</span>
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <button
+                onClick={() => setManualLatam(false)}
+                className={`px-2.5 py-1 rounded-lg text-xs font-medium transition-all ${!effectiveLatam ? 'bg-primary text-white' : 'bg-gray-100 dark:bg-slate-700 text-gray-500 dark:text-slate-400 hover:bg-gray-200'}`}
+              >
+                🌍 Global
+              </button>
+              <button
+                onClick={() => setManualLatam(true)}
+                className={`px-2.5 py-1 rounded-lg text-xs font-medium transition-all ${effectiveLatam ? 'bg-accent text-white' : 'bg-gray-100 dark:bg-slate-700 text-gray-500 dark:text-slate-400 hover:bg-gray-200'}`}
+              >
+                🌎 LATAM
+              </button>
+            </div>
+            <div className="text-3xl font-black text-gray-900 dark:text-white mb-0.5">
+              ${price} <span className="text-base font-normal text-gray-400">USD</span>
             </div>
             <div className="text-xs text-gray-400 mb-4">pago único · acceso permanente</div>
-            <Link
-              href="/blueprint"
-              className="block bg-gradient-to-r from-primary to-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm"
+            <a
+              href={checkoutUrl}
+              className="lemonsqueezy-button block bg-gradient-to-r from-primary to-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm text-center"
             >
               Obtener mi Blueprint →
-            </Link>
-            <p className="text-xs text-gray-400 mt-2">🔒 Pago seguro con Stripe</p>
+            </a>
+            <p className="text-xs text-gray-400 mt-2">🔒 Pago seguro · Garantía 7 días</p>
           </div>
         </div>
       </div>
