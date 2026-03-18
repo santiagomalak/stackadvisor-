@@ -42,7 +42,8 @@ export default function BlueprintPage() {
   const isLatam = manualLatam !== null ? manualLatam : geo.isLatam;
   const price = isLatam ? 30 : 40;
   const variantId = isLatam ? VARIANT_LATAM : VARIANT_GLOBAL;
-  const checkoutUrl = `https://stackadvisor.lemonsqueezy.com/checkout/buy/${variantId}?embed=1&media=0&logo=0`;
+  const redirectUrl = encodeURIComponent('https://stackadvisor-nu.vercel.app/blueprint/success');
+  const checkoutUrl = `https://stackadvisor.lemonsqueezy.com/checkout/buy/${variantId}?embed=1&media=0&logo=0&redirect_url=${redirectUrl}`;
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-slate-900">

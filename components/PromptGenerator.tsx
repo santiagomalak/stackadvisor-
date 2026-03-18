@@ -331,12 +331,12 @@ export default function PromptGenerator({ stack, userProfile }: Props) {
               ${price} <span className="text-base font-normal text-gray-400">USD</span>
             </div>
             <div className="text-xs text-gray-400 mb-4">pago único · acceso permanente</div>
-            <a
-              href={checkoutUrl}
-              className="lemonsqueezy-button block bg-gradient-to-r from-primary to-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm text-center"
+            <Link
+              href="/blueprint"
+              className="block bg-gradient-to-r from-primary to-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm text-center"
             >
               Obtener mi Blueprint →
-            </a>
+            </Link>
             <p className="text-xs text-gray-400 mt-2">🔒 Pago seguro · Garantía 7 días</p>
           </div>
         </div>

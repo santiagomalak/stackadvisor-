@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -79,15 +80,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning className={inter.variable}>
-      <head>
-        <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
-      </head>
       <body className="antialiased bg-gray-50 dark:bg-slate-900 text-gray-900 dark:text-slate-100 transition-colors font-sans">
         <ThemeProvider>
           <Navbar />
           <main>{children}</main>
           <Footer />
         </ThemeProvider>
+        <Script src="https://assets.lemonsqueezy.com/lemon.js" strategy="afterInteractive" />
       </body>
     </html>
   );

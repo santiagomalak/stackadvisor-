@@ -1,18 +1,9 @@
 'use client';
 
-import { useEffect, useState, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 import Link from 'next/link';
 
 function SuccessContent() {
-  const searchParams = useSearchParams();
-  const sessionId = searchParams.get('session_id');
-  const [verified, setVerified] = useState(false);
-
-  useEffect(() => {
-    if (sessionId) setVerified(true);
-  }, [sessionId]);
-
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-slate-900 flex items-center justify-center px-4 py-16">
       <div className="max-w-lg w-full text-center">
