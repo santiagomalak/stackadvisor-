@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import stacksData from '@/lib/stacks.json';
 
-const BASE_URL = 'https://stackadvisor.vercel.app';
+const BASE_URL = 'https://stackadvisor-nu.vercel.app';
 const STACKS: any[] = (stacksData as any).stacks;
 
 export default function sitemap(): MetadataRoute.Sitemap {

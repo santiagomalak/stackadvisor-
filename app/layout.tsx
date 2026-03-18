@@ -11,7 +11,7 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const BASE_URL = "https://stackadvisor.vercel.app";
+const BASE_URL = "https://stackadvisor-nu.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),

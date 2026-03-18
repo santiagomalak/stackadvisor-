@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://stackadvisor.vercel.app/sitemap.xml
+Sitemap: https://stackadvisor-nu.vercel.app/sitemap.xml
