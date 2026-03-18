@@ -41,12 +41,12 @@ interface AffiliateConfig {
 export const AFFILIATES: Record<AffiliateKey, AffiliateConfig> = {
   railway: {
     name: 'Railway',
-    url: 'https://railway.app?referralCode=YOUR_CODE',
+    url: 'https://railway.app?referralCode=IXqDQV',
     cta: 'Empezar gratis en Railway →',
     badge: '$5 de crédito gratis',
     description: 'Deploy en segundos. $5 gratis para empezar sin tarjeta.',
     logo: '🚂',
-    active: false, // → cambiar a true cuando tengas tu código
+    active: true,
   },
   digitalocean: {
     name: 'DigitalOcean',
