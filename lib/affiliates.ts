@@ -104,12 +104,12 @@ export const AFFILIATES: Record<AffiliateKey, AffiliateConfig> = {
   },
   platzi: {
     name: 'Platzi',
-    url: 'https://platzi.com/r/YOUR_CODE',
+    url: 'https://platzi.com/r/santiagoaragonmalak',
     cta: 'Ver cursos en Platzi →',
     badge: '30% descuento',
     description: 'Los mejores cursos en español para aprender este stack.',
     logo: '📚',
-    active: false,
+    active: true,
   },
   mongodb_atlas: {
     name: 'MongoDB Atlas',
@@ -169,4 +169,10 @@ export function getAffiliatesForHosting(hosting: string): AffiliateConfig[] {
   return keys
     .map((k) => AFFILIATES[k])
     .filter((a) => a && a.active);
+}
+
+// Platzi aparece en la sección de recursos de aprendizaje de cualquier stack
+export function getLearningAffiliate(): AffiliateConfig | null {
+  const platzi = AFFILIATES['platzi'];
+  return platzi?.active ? platzi : null;
 }

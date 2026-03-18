@@ -3,6 +3,7 @@ import Link from 'next/link';
 import stacksData from '@/lib/stacks.json';
 import type { Metadata } from 'next';
 import AffiliateCards from '@/components/AffiliateCards';
+import { getLearningAffiliate } from '@/lib/affiliates';
 
 const ALL_STACKS: any[] = (stacksData as any).stacks;
 
@@ -268,6 +269,32 @@ export default function StackPage({ params }: { params: { id: string } }) {
                       </a>
                     );
                   })}
+
+                  {/* Platzi affiliate — cursos en español */}
+                  {(() => {
+                    const platzi = getLearningAffiliate();
+                    if (!platzi) return null;
+                    return (
+                      <a
+                        href={platzi.url}
+                        target="_blank"
+                        rel="noopener noreferrer sponsored"
+                        className="flex items-center gap-4 border-2 border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-950 rounded-xl p-4 hover:border-accent transition-all group"
+                      >
+                        <span className="text-2xl">{platzi.logo}</span>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 mb-0.5">
+                            <div className="text-xs text-gray-500 dark:text-slate-400 uppercase tracking-wide">Cursos en español</div>
+                            <span className="text-xs bg-accent text-white px-1.5 py-0.5 rounded-full font-semibold">{platzi.badge}</span>
+                          </div>
+                          <div className="font-semibold text-gray-800 dark:text-slate-200 group-hover:text-accent transition-colors text-sm">
+                            Aprendé {stack.name.split('+')[0].trim()} en Platzi
+                          </div>
+                        </div>
+                        <span className="text-gray-400 dark:text-slate-500 group-hover:text-accent transition-colors flex-shrink-0">→</span>
+                      </a>
+                    );
+                  })()}
                 </div>
               </div>
             )}
