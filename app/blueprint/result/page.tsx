@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
-const CONTACT_WHATSAPP = 'https://wa.me/549XXXXXXXXXX?text=Hola%20Santiago%2C%20compr%C3%A9%20el%20Blueprint%20y%20quiero%20coordinar%20la%20sesi%C3%B3n%201%3A1';
+const CONTACT_WHATSAPP = 'https://wa.me/5493834553249?text=Hola%20Santiago%2C%20compr%C3%A9%20el%20Blueprint%20de%20StackAdvisor%20y%20quiero%20coordinar%20mi%20sesi%C3%B3n%201%3A1';
 
 interface Message {
   role: 'user' | 'ai';
