@@ -10,6 +10,7 @@
     "test": "node test_cases.js"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "@stripe/stripe-js": "^8.11.0",
     "next": "^14.2.0",
     "qrcode": "^1.5.4",
