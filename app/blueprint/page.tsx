@@ -7,14 +7,14 @@ const VARIANT_GLOBAL = '0b4b596e-15a4-49e7-a6a2-8f06cabb3286';
 const VARIANT_LATAM  = '9542ec0d-60aa-4d07-8922-552b1e4e1638';
 
 const INCLUDES = [
-  { icon: '🏗️', title: 'Arquitectura completa',        desc: 'Diagrama de componentes, flujo de datos, esquema de base de datos y decisiones técnicas justificadas para tu proyecto específico.' },
-  { icon: '📁', title: 'Estructura de carpetas',        desc: 'La organización exacta del proyecto lista para copiar, con descripción de qué va en cada archivo y carpeta.' },
-  { icon: '✨', title: '30+ prompts listos para IA',    desc: 'Un prompt por cada parte de tu app: setup, auth, CRUD, deploy, testing. Pegá directo en Cursor o Claude.' },
-  { icon: '🗓️', title: 'Plan de desarrollo milimétrico', desc: 'Semana a semana, qué construir primero, qué evitar, en qué orden. Adaptado a tu nivel y tiempo disponible.' },
-  { icon: '💰', title: 'Estimación de costos real',     desc: 'Cuánto vas a gastar en infra desde el MVP hasta 10.000 usuarios. Sin sorpresas.' },
-  { icon: '💬', title: 'Chat con IA contextualizado',   desc: 'Una IA que ya sabe todo de tu proyecto. Preguntale lo que quieras sobre tu stack y tu app.' },
-  { icon: '👤', title: 'Consulta 1:1 con experto',      desc: '30 minutos con un experto humano que revisó tu Blueprint y puede guiarte con criterio real.' },
-  { icon: '♾️', title: 'Acceso permanente',             desc: 'El Blueprint es tuyo para siempre. Lo podés revisar en cualquier momento del desarrollo.' },
+  { icon: '🏗️', title: 'Arquitectura completa',         desc: 'Diagrama de componentes, flujo de datos, esquema de base de datos y decisiones técnicas justificadas para tu proyecto específico.' },
+  { icon: '📁', title: 'Estructura de carpetas',         desc: 'La organización exacta del proyecto lista para copiar, con descripción de qué va en cada archivo y carpeta.' },
+  { icon: '✨', title: '30+ prompts listos para IA',     desc: 'Un prompt por cada parte de tu app: setup, auth, CRUD, deploy, testing. Pegá directo en Cursor o Claude.' },
+  { icon: '🗓️', title: 'Plan semana a semana',           desc: 'Qué construir primero, en qué orden, qué evitar. Adaptado a tus horas disponibles y fecha de lanzamiento.' },
+  { icon: '💰', title: 'Estimación de costos real',      desc: 'Desglose mensual por servicio desde el MVP hasta escala. Anclado a tu presupuesto declarado. Sin sorpresas.' },
+  { icon: '💬', title: '50 mensajes de IA incluidos',    desc: 'Una IA que conoce tu proyecto en profundidad. 50 mensajes para resolver dudas técnicas, de código o de arquitectura.' },
+  { icon: '👤', title: 'Sesión 1:1 de 30 min',           desc: 'Una sesión con un experto humano para revisar tu Blueprint, validar decisiones y resolver lo que la IA no puede.' },
+  { icon: '💾', title: 'Guardado en tu dispositivo',     desc: 'El Blueprint queda guardado en tu navegador. Cerrá la pestaña y volvé cuando quieras — siempre va a estar ahí.' },
 ];
 
 const FAQS = [
@@ -149,8 +149,8 @@ export default function BlueprintPage() {
                   ['Estructura de carpetas lista',        false, true],
                   ['30+ prompts para cada feature',       false, true],
                   ['Plan de desarrollo milimétrico',      false, true],
-                  ['Chat con IA contextualizado',         false, true],
-                  ['Consulta 1:1 con experto (30 min)',   false, true],
+                  ['50 mensajes de IA contextualizada',   false, true],
+                  ['Sesión 1:1 con experto (30 min)',     false, true],
                   ['Garantía de 7 días',                  false, true],
                 ].map(([feature, free, paid]) => (
                   <tr key={feature as string} className="hover:bg-gray-50 dark:hover:bg-slate-700/50">
