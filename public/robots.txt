@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stackadvisor.vercel.app/sitemap.xml

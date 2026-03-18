@@ -1,0 +1,1032 @@
+{
+  "metadata": {
+    "version": "3.0",
+    "totalStacks": 35,
+    "tiers": 4,
+    "lastUpdated": "2026-03-18"
+  },
+  "stacks": [
+    {
+      "id": "nextjs_postgres_vercel",
+      "name": "Next.js + PostgreSQL + Vercel",
+      "tier": 1,
+      "tierLabel": "Popular & Recomendado",
+      "description": "Full-stack React framework con renderizado híbrido y deploy sin fricción",
+      "bestFor": ["E-commerce", "SaaS beginners", "Speed to market", "SEO-critical apps"],
+      "technologies": {
+        "frontend": "Next.js 14 (React)",
+        "backend": "Next.js API Routes",
+        "database": "PostgreSQL (Supabase/Neon)",
+        "hosting": "Vercel",
+        "auth": "NextAuth.js",
+        "styling": "TailwindCSS"
+      },
+      "pros": ["Deploy en segundos", "Excelente DX (Developer Experience)", "SSR + SSG + ISR out of the box", "Gran comunidad y recursos"],
+      "cons": ["Vendor lock-in con Vercel (mitigable)", "Puede ser overkill para apps muy simples"],
+      "learningCurve": "medium",
+      "community": "excellent",
+      "estimatedCost": "$25-50/month",
+      "setupTime": "2-4 hours",
+      "scalability": "high",
+      "tags": ["javascript", "typescript", "react", "fullstack", "seo", "fast", "beginner-friendly"],
+      "resources": {
+        "docs": { "label": "Documentación oficial Next.js", "url": "https://nextjs.org/docs" },
+        "tutorial": { "label": "Next.js Full Course – Traversy Media (YouTube)", "url": "https://www.youtube.com/watch?v=mTz0GXj8NN0" },
+        "quickstart": { "label": "Learn Next.js paso a paso", "url": "https://nextjs.org/learn" }
+      }
+    },
+    {
+      "id": "t3_stack",
+      "name": "T3 Stack (Next.js + tRPC + Prisma)",
+      "tier": 1,
+      "tierLabel": "Popular & Recomendado",
+      "description": "Full-stack TypeScript opinonado con type safety de extremo a extremo",
+      "bestFor": ["TypeScript-first SaaS", "Type safety end-to-end", "Modern full-stack apps"],
+      "technologies": {
+        "frontend": "Next.js 14 (React)",
+        "backend": "tRPC + Next.js API",
+        "database": "PostgreSQL (Prisma ORM)",
+        "hosting": "Vercel",
+        "auth": "NextAuth.js",
+        "styling": "TailwindCSS"
+      },
+      "pros": ["Type safety de punta a punta (cero runtime errors)", "DX increíble", "Stack completo en un comando", "Hot trend 2025-2026"],
+      "cons": ["Opiniated — menos flexible", "Curva de aprendizaje de tRPC", "Puede ser overkill para proyectos simples"],
+      "learningCurve": "medium-high",
+      "community": "growing",
+      "estimatedCost": "$25-50/month",
+      "setupTime": "3-6 hours",
+      "scalability": "high",
+      "tags": ["typescript", "nextjs", "trpc", "prisma", "fullstack", "modern", "type-safe"],
+      "resources": {
+        "docs": { "label": "Documentación oficial T3", "url": "https://create.t3.gg/en/introduction" },
+        "tutorial": { "label": "T3 Stack Tutorial – Theo (YouTube)", "url": "https://www.youtube.com/watch?v=YkOSUVzOAA4" },
+        "quickstart": { "label": "Crear tu primer proyecto T3", "url": "https://create.t3.gg" }
+      }
+    },
+    {
+      "id": "react_node_postgres_railway",
+      "name": "React + Node.js + PostgreSQL + Railway",
+      "tier": 1,
+      "tierLabel": "Popular & Recomendado",
+      "description": "Classic MERN-style stack con separación clara frontend/backend",
+      "bestFor": ["SaaS", "Equipos medianos", "Arquitectura flexible"],
+      "technologies": {
+        "frontend": "React (Vite)",
+        "backend": "Node.js + Express",
+        "database": "PostgreSQL",
+        "hosting": "Railway / Render",
+        "auth": "Passport.js / JWT",
+        "styling": "TailwindCSS / Material-UI"
+      },
+      "pros": ["Arquitectura clara y escalable", "Fácil de entender para equipos", "Gran flexibilidad", "Transferible a cualquier cloud"],
+      "cons": ["Más setup inicial que Next.js", "Requiere manejar CORS y deployment separado"],
+      "learningCurve": "medium",
+      "community": "excellent",
+      "estimatedCost": "$20-40/month",
+      "setupTime": "4-6 hours",
+      "scalability": "very high",
+      "tags": ["javascript", "typescript", "react", "nodejs", "separated", "classic"],
+      "resources": {
+        "docs": { "label": "React Docs + Express Guide", "url": "https://react.dev/learn" },
+        "tutorial": { "label": "Full Stack MERN App – Traversy Media", "url": "https://www.youtube.com/watch?v=-0exw-9YJBo" },
+        "quickstart": { "label": "Railway deploy en 5 minutos", "url": "https://railway.app/new" }
+      }
+    },
+    {
+      "id": "react_fastapi_postgres",
+      "name": "React + FastAPI + PostgreSQL",
+      "tier": 1,
+      "tierLabel": "Popular & Recomendado",
+      "description": "Python backend moderno con React frontend, ideal para data-heavy apps",
+      "bestFor": ["Data science apps", "ML integration", "Python developers"],
+      "technologies": {
+        "frontend": "React (Vite)",
+        "backend": "FastAPI (Python)",
+        "database": "PostgreSQL",
+        "hosting": "Vercel + Railway",
+        "auth": "FastAPI-Users",
+        "styling": "TailwindCSS"
+      },
+      "pros": ["Perfecto para integración con ML/AI", "FastAPI es rápido y moderno", "Type hints nativos en Python", "Excelente para data processing"],
+      "cons": ["Menos recursos que Node.js", "Python async puede ser complejo"],
+      "learningCurve": "medium-high",
+      "community": "good",
+      "estimatedCost": "$30-60/month",
+      "setupTime": "5-8 hours",
+      "scalability": "high",
+      "tags": ["python", "react", "data", "ml", "api", "separated"],
+      "resources": {
+        "docs": { "label": "FastAPI documentación oficial", "url": "https://fastapi.tiangolo.com" },
+        "tutorial": { "label": "FastAPI Full Course – freeCodeCamp", "url": "https://www.youtube.com/watch?v=0sOvCWFmrtA" },
+        "quickstart": { "label": "FastAPI tutorial paso a paso", "url": "https://fastapi.tiangolo.com/tutorial" }
+      }
+    },
+    {
+      "id": "django_react_postgres",
+      "name": "Django + React + PostgreSQL",
+      "tier": 1,
+      "tierLabel": "Popular & Recomendado",
+      "description": "Framework Python completo con React frontend, batteries included",
+      "bestFor": ["Rapid prototyping", "Admin-heavy apps", "Python monolith"],
+      "technologies": {
+        "frontend": "React",
+        "backend": "Django + Django REST Framework",
+        "database": "PostgreSQL",
+        "hosting": "Railway / DigitalOcean",
+        "auth": "Django Auth",
+        "styling": "TailwindCSS"
+      },
+      "pros": ["Admin panel gratis", "ORM muy potente", "Seguridad built-in", "Ecosystem maduro"],
+      "cons": ["Más pesado que FastAPI", "Opinionated (Django way)"],
+      "learningCurve": "medium-high",
+      "community": "excellent",
+      "estimatedCost": "$25-50/month",
+      "setupTime": "6-10 hours",
+      "scalability": "high",
+      "tags": ["python", "react", "monolith", "admin", "rapid"],
+      "resources": {
+        "docs": { "label": "Documentación oficial Django", "url": "https://docs.djangoproject.com/en/stable/" },
+        "tutorial": { "label": "Django + React Full Stack – Dennis Ivy", "url": "https://www.youtube.com/watch?v=tYKRAXIio28" },
+        "quickstart": { "label": "Django tutorial oficial (parte 1)", "url": "https://docs.djangoproject.com/en/stable/intro/tutorial01/" }
+      }
+    },
+    {
+      "id": "rails_postgres",
+      "name": "Ruby on Rails + PostgreSQL",
+      "tier": 1,
+      "tierLabel": "Popular & Recomendado",
+      "description": "Framework legendario que prioriza convención sobre configuración",
+      "bestFor": ["MVP ultrarrápido", "CRUD apps", "Startups pequeñas", "Rapid prototyping"],
+      "technologies": {
+        "frontend": "Hotwire (Turbo + Stimulus) o React via Inertia",
+        "backend": "Ruby on Rails",
+        "database": "PostgreSQL",
+        "hosting": "Railway / Render / Fly.io",
+        "auth": "Devise",
+        "styling": "TailwindCSS"
+      },
+      "pros": ["Generadores automáticos de CRUD", "ActiveRecord ORM increíble", "Convención sobre configuración", "Admin panel con ActiveAdmin"],
+      "cons": ["Ruby menos popular que JS/Python", "Performance inferior a Go/Node", "Menos trendy en 2025"],
+      "learningCurve": "medium",
+      "community": "excellent",
+      "estimatedCost": "$20-40/month",
+      "setupTime": "4-8 hours",
+      "scalability": "high",
+      "tags": ["ruby", "rails", "rapid", "monolith", "traditional", "crud"],
+      "resources": {
+        "docs": { "label": "Documentación oficial Rails", "url": "https://guides.rubyonrails.org" },
+        "tutorial": { "label": "Ruby on Rails Tutorial – Michael Hartl (gratis)", "url": "https://www.railstutorial.org" },
+        "quickstart": { "label": "Getting Started with Rails", "url": "https://guides.rubyonrails.org/getting_started.html" }
+      }
+    },
+    {
+      "id": "vue_node_postgres",
+      "name": "Vue.js + Node.js + PostgreSQL",
+      "tier": 1,
+      "tierLabel": "Popular & Recomendado",
+      "description": "Alternativa a React con curva de aprendizaje más suave",
+      "bestFor": ["Vue developers", "Equipos que prefieren menos complejidad que React"],
+      "technologies": {
+        "frontend": "Vue 3 (Composition API)",
+        "backend": "Node.js + Express",
+        "database": "PostgreSQL",
+        "hosting": "Netlify + Railway",
+        "auth": "Passport.js",
+        "styling": "TailwindCSS / Vuetify"
+      },
+      "pros": ["Sintaxis más simple que React", "Excelente documentación", "Performance comparable a React", "Menos verbose"],
+      "cons": ["Comunidad más pequeña que React", "Menos recursos/jobs"],
+      "learningCurve": "low-medium",
+      "community": "good",
+      "estimatedCost": "$20-40/month",
+      "setupTime": "4-6 hours",
+      "scalability": "high",
+      "tags": ["javascript", "vue", "nodejs", "beginner-friendly", "separated"],
+      "resources": {
+        "docs": { "label": "Documentación oficial Vue 3", "url": "https://vuejs.org/guide/introduction.html" },
+        "tutorial": { "label": "Vue.js Course – Vue Mastery (gratis)", "url": "https://www.vuemastery.com/courses/intro-to-vue-3/intro-to-vue3/" },
+        "quickstart": { "label": "Vue Quick Start", "url": "https://vuejs.org/guide/quick-start.html" }
+      }
+    },
+    {
+      "id": "flutter_firebase",
+      "name": "Flutter + Firebase",
+      "tier": 1,
+      "tierLabel": "Popular & Recomendado",
+      "description": "Cross-platform mobile con backend as a service",
+      "bestFor": ["Mobile MVP rápido", "iOS + Android simultáneo", "Solo developers"],
+      "technologies": {
+        "frontend": "Flutter (Dart)",
+        "backend": "Firebase (Auth, Firestore, Functions)",
+        "database": "Firestore / Realtime DB",
+        "hosting": "Firebase Hosting",
+        "auth": "Firebase Auth",
+        "styling": "Material Design / Cupertino"
+      },
+      "pros": ["Una codebase = iOS + Android + Web", "Backend listo sin configuración", "Hot reload increíble", "Performance nativa"],
+      "cons": ["Vendor lock-in con Google", "Costos pueden escalar rápido", "Dart no es mainstream"],
+      "learningCurve": "medium",
+      "community": "excellent",
+      "estimatedCost": "$10-100/month (scaling dependent)",
+      "setupTime": "3-5 hours",
+      "scalability": "medium-high",
+      "tags": ["mobile", "dart", "flutter", "firebase", "cross-platform", "fast"],
+      "resources": {
+        "docs": { "label": "Documentación oficial Flutter", "url": "https://docs.flutter.dev" },
+        "tutorial": { "label": "Flutter & Firebase – The Net Ninja (YouTube)", "url": "https://www.youtube.com/watch?v=sfA3NWDBPZ4" },
+        "quickstart": { "label": "Flutter Codelabs paso a paso", "url": "https://docs.flutter.dev/get-started/codelab" }
+      }
+    },
+    {
+      "id": "react_native_firebase",
+      "name": "React Native + Firebase",
+      "tier": 1,
+      "tierLabel": "Popular & Recomendado",
+      "description": "Mobile cross-platform usando JavaScript/React",
+      "bestFor": ["React developers moviéndose a mobile", "Cross-platform apps"],
+      "technologies": {
+        "frontend": "React Native + Expo",
+        "backend": "Firebase",
+        "database": "Firestore",
+        "hosting": "App Store + Play Store",
+        "auth": "Firebase Auth",
+        "styling": "React Native StyleSheet / NativeWind"
+      },
+      "pros": ["Usa React (conocimiento transferible)", "Expo simplifica development", "Backend instant con Firebase", "Ecosystem maduro"],
+      "cons": ["Performance inferior a Flutter/nativo", "Debugging puede ser frustrante", "Actualizaciones rompen cosas"],
+      "learningCurve": "medium",
+      "community": "excellent",
+      "estimatedCost": "$10-100/month",
+      "setupTime": "4-6 hours",
+      "scalability": "medium",
+      "tags": ["mobile", "react", "javascript", "firebase", "cross-platform"],
+      "resources": {
+        "docs": { "label": "Expo Docs (React Native simplificado)", "url": "https://docs.expo.dev" },
+        "tutorial": { "label": "React Native con Expo – Fireship (YouTube)", "url": "https://www.youtube.com/watch?v=0-S5a0eXPoc" },
+        "quickstart": { "label": "Crear tu primera app Expo", "url": "https://docs.expo.dev/tutorial/introduction/" }
+      }
+    },
+    {
+      "id": "svelte_node_mongo",
+      "name": "Svelte + Node.js + MongoDB",
+      "tier": 1,
+      "tierLabel": "Popular & Recomendado",
+      "description": "Framework ligero con NoSQL para real-time apps",
+      "bestFor": ["Real-time apps", "Prototipos rápidos", "Developers que odian el boilerplate de React"],
+      "technologies": {
+        "frontend": "Svelte / SvelteKit",
+        "backend": "Node.js + Express",
+        "database": "MongoDB",
+        "hosting": "Vercel + MongoDB Atlas",
+        "auth": "JWT / Lucia",
+        "styling": "TailwindCSS"
+      },
+      "pros": ["Menos código que React", "Performance excelente", "No virtual DOM overhead", "MongoDB flexible para prototipos"],
+      "cons": ["Comunidad más pequeña", "Menos librerías", "MongoDB no es ideal para relaciones complejas"],
+      "learningCurve": "low-medium",
+      "community": "growing",
+      "estimatedCost": "$15-30/month",
+      "setupTime": "3-5 hours",
+      "scalability": "medium-high",
+      "tags": ["svelte", "javascript", "mongodb", "realtime", "lightweight"],
+      "resources": {
+        "docs": { "label": "Tutorial interactivo oficial de Svelte", "url": "https://learn.svelte.dev" },
+        "tutorial": { "label": "SvelteKit Full Course – Joy of Code (YouTube)", "url": "https://www.youtube.com/watch?v=uOI77E8Y95Q" },
+        "quickstart": { "label": "Svelte Quick Start", "url": "https://svelte.dev/docs/introduction" }
+      }
+    },
+    {
+      "id": "go_react_postgres",
+      "name": "Go + React + PostgreSQL",
+      "tier": 2,
+      "tierLabel": "Especializado",
+      "description": "Backend ultra-performante con React frontend",
+      "bestFor": ["Performance-critical apps", "High concurrency", "APIs escalables"],
+      "technologies": {
+        "frontend": "React",
+        "backend": "Go (Gin / Echo framework)",
+        "database": "PostgreSQL",
+        "hosting": "Railway / Fly.io",
+        "auth": "JWT / OAuth2",
+        "styling": "TailwindCSS"
+      },
+      "pros": ["Performance excepcional", "Concurrencia built-in (goroutines)", "Binarios compilados", "Bajo uso de memoria"],
+      "cons": ["Curva de aprendizaje steep si vienes de JS", "Error handling verboso"],
+      "learningCurve": "high",
+      "community": "good",
+      "estimatedCost": "$20-40/month",
+      "setupTime": "8-12 hours",
+      "scalability": "very high",
+      "tags": ["go", "performance", "react", "api", "concurrent", "specialized"],
+      "resources": {
+        "docs": { "label": "A Tour of Go (interactivo)", "url": "https://go.dev/tour/" },
+        "tutorial": { "label": "Go Programming Full Course – freeCodeCamp", "url": "https://www.youtube.com/watch?v=un6ZyFkqFKo" },
+        "quickstart": { "label": "Go Getting Started Guide", "url": "https://go.dev/doc/tutorial/getting-started" }
+      }
+    },
+    {
+      "id": "rust_react_postgres",
+      "name": "Rust + React + PostgreSQL",
+      "tier": 2,
+      "tierLabel": "Especializado",
+      "description": "Máxima performance y seguridad con Rust backend",
+      "bestFor": ["Ultra-high performance", "Sistemas críticos", "Low-latency apps"],
+      "technologies": {
+        "frontend": "React",
+        "backend": "Rust (Actix-web / Axum)",
+        "database": "PostgreSQL",
+        "hosting": "Fly.io / AWS",
+        "auth": "JWT",
+        "styling": "TailwindCSS"
+      },
+      "pros": ["Performance y seguridad máximas", "Memory safety sin garbage collector", "Concurrencia segura", "Ideal para latency-critical"],
+      "cons": ["Curva de aprendizaje MUY steep", "Desarrollo más lento", "Overkill para mayoría de apps"],
+      "learningCurve": "very high",
+      "community": "growing",
+      "estimatedCost": "$25-50/month",
+      "setupTime": "15-20 hours",
+      "scalability": "very high",
+      "tags": ["rust", "performance", "react", "ultra-fast", "specialized"],
+      "resources": {
+        "docs": { "label": "The Rust Book (gratis, oficial)", "url": "https://doc.rust-lang.org/book/" },
+        "tutorial": { "label": "Rust Full Course – freeCodeCamp", "url": "https://www.youtube.com/watch?v=BpPEoZW5IiY" },
+        "quickstart": { "label": "Rust Getting Started", "url": "https://www.rust-lang.org/learn/get-started" }
+      }
+    },
+    {
+      "id": "convex_react",
+      "name": "Convex + React",
+      "tier": 2,
+      "tierLabel": "Especializado",
+      "description": "Backend reactivo con real-time automático y TypeScript nativo",
+      "bestFor": ["Real-time apps sin configuración", "TypeScript full-stack", "Solo developers que odian el backend"],
+      "technologies": {
+        "frontend": "React (Vite / Next.js)",
+        "backend": "Convex Functions",
+        "database": "Convex DB (document)",
+        "hosting": "Vercel + Convex Cloud",
+        "auth": "Clerk / Auth0",
+        "styling": "TailwindCSS"
+      },
+      "pros": ["Real-time automático sin WebSockets manuales", "TypeScript end-to-end sin config", "Zero backend setup", "Auto-scaling"],
+      "cons": ["Vendor lock-in total", "Comunidad pequeña (relativamente nuevo)", "Caro a escala"],
+      "learningCurve": "low-medium",
+      "community": "growing",
+      "estimatedCost": "$0-30/month",
+      "setupTime": "2-4 hours",
+      "scalability": "high",
+      "tags": ["react", "typescript", "realtime", "baas", "modern", "fast"],
+      "resources": {
+        "docs": { "label": "Documentación oficial Convex", "url": "https://docs.convex.dev" },
+        "tutorial": { "label": "Convex Tutorial – Theo (YouTube)", "url": "https://www.youtube.com/watch?v=vaJmrB2VAVI" },
+        "quickstart": { "label": "Convex Quickstart con React", "url": "https://docs.convex.dev/quickstart/react" }
+      }
+    },
+    {
+      "id": "nocode_bubble_flutterflow",
+      "name": "Bubble / FlutterFlow",
+      "tier": 2,
+      "tierLabel": "Especializado",
+      "description": "No-code platforms para non-technical founders",
+      "bestFor": ["Non-technical founders", "Validación rápida", "MVPs sin código"],
+      "technologies": {
+        "frontend": "Visual builder (drag & drop)",
+        "backend": "Managed backend",
+        "database": "Managed database",
+        "hosting": "Platform hosting",
+        "auth": "Built-in auth",
+        "styling": "Drag & drop editor"
+      },
+      "pros": ["Cero código requerido", "Lanzar en días no meses", "Iteración muy rápida", "Ideal para validación de idea"],
+      "cons": ["Vendor lock-in total", "Límites de customización", "Costos escalan rápido", "Migración difícil a código real"],
+      "learningCurve": "very low",
+      "community": "good",
+      "estimatedCost": "$25-200/month",
+      "setupTime": "1-2 hours",
+      "scalability": "low-medium",
+      "tags": ["nocode", "non-technical", "fast", "mvp", "beginner"],
+      "resources": {
+        "docs": { "label": "Bubble Manual Oficial", "url": "https://manual.bubble.io" },
+        "tutorial": { "label": "Bubble Tutorial para principiantes (YouTube)", "url": "https://www.youtube.com/watch?v=aHqQ5ZPBSRM" },
+        "quickstart": { "label": "Bubble Academy (gratis)", "url": "https://bubble.io/academy" }
+      }
+    },
+    {
+      "id": "remix_postgres",
+      "name": "Remix + PostgreSQL",
+      "tier": 2,
+      "tierLabel": "Especializado",
+      "description": "Framework React server-first con excelente UX",
+      "bestFor": ["Server-side rendering", "Progressive enhancement", "Dynamic apps"],
+      "technologies": {
+        "frontend": "Remix (React)",
+        "backend": "Remix loaders/actions",
+        "database": "PostgreSQL",
+        "hosting": "Fly.io / Vercel",
+        "auth": "Remix Auth",
+        "styling": "TailwindCSS"
+      },
+      "pros": ["UX excelente (optimistic UI)", "Server-side focus", "Manejo de errores superior", "Progressive enhancement"],
+      "cons": ["Comunidad más pequeña que Next.js", "Menos recursos/templates"],
+      "learningCurve": "medium-high",
+      "community": "growing",
+      "estimatedCost": "$20-40/month",
+      "setupTime": "4-6 hours",
+      "scalability": "high",
+      "tags": ["react", "remix", "ssr", "javascript", "modern"],
+      "resources": {
+        "docs": { "label": "Documentación oficial Remix", "url": "https://remix.run/docs" },
+        "tutorial": { "label": "Remix Tutorial oficial", "url": "https://remix.run/docs/en/main/start/tutorial" },
+        "quickstart": { "label": "Remix Quick Start", "url": "https://remix.run/docs/en/main/start/quickstart" }
+      }
+    },
+    {
+      "id": "astro_node_postgres",
+      "name": "Astro + Node.js + PostgreSQL",
+      "tier": 2,
+      "tierLabel": "Especializado",
+      "description": "Content-focused framework con islands architecture y performance extrema",
+      "bestFor": ["Blogs", "Sites de contenido", "Marketing sites con interactividad"],
+      "technologies": {
+        "frontend": "Astro (Multi-framework)",
+        "backend": "Node.js / Astro SSR",
+        "database": "PostgreSQL",
+        "hosting": "Vercel / Netlify",
+        "auth": "Auth.js",
+        "styling": "TailwindCSS"
+      },
+      "pros": ["Performance increíble (casi cero JS)", "Soporta React/Vue/Svelte juntos", "SEO excelente", "Islands architecture"],
+      "cons": ["No ideal para apps muy dinámicas", "Menos útil para SaaS complejos"],
+      "learningCurve": "low-medium",
+      "community": "growing",
+      "estimatedCost": "$15-30/month",
+      "setupTime": "3-5 hours",
+      "scalability": "high",
+      "tags": ["astro", "content", "seo", "javascript", "performance"],
+      "resources": {
+        "docs": { "label": "Documentación oficial Astro", "url": "https://docs.astro.build" },
+        "tutorial": { "label": "Build a Blog with Astro – tutorial oficial", "url": "https://docs.astro.build/en/tutorial/0-introduction/" },
+        "quickstart": { "label": "Astro Quick Start", "url": "https://docs.astro.build/en/install-and-setup/" }
+      }
+    },
+    {
+      "id": "sveltekit_postgres",
+      "name": "SvelteKit + PostgreSQL",
+      "tier": 2,
+      "tierLabel": "Especializado",
+      "description": "Full-stack Svelte framework con SSR, más simple que Next.js",
+      "bestFor": ["Full-stack Svelte", "Developers que buscan simplicidad", "Apps con menos boilerplate"],
+      "technologies": {
+        "frontend": "SvelteKit",
+        "backend": "SvelteKit endpoints",
+        "database": "PostgreSQL",
+        "hosting": "Vercel / Netlify",
+        "auth": "Lucia Auth",
+        "styling": "TailwindCSS"
+      },
+      "pros": ["Menos boilerplate que Next.js", "Performance excelente", "DX increíble", "File-based routing simple"],
+      "cons": ["Comunidad más pequeña", "Menos jobs/recursos", "Ecosystem en desarrollo"],
+      "learningCurve": "low-medium",
+      "community": "growing",
+      "estimatedCost": "$15-35/month",
+      "setupTime": "3-5 hours",
+      "scalability": "high",
+      "tags": ["svelte", "fullstack", "javascript", "modern", "simple"],
+      "resources": {
+        "docs": { "label": "Tutorial interactivo SvelteKit", "url": "https://learn.svelte.dev/tutorial/introducing-sveltekit" },
+        "tutorial": { "label": "SvelteKit Crash Course – Traversy Media", "url": "https://www.youtube.com/watch?v=9OlLxkaeVvw" },
+        "quickstart": { "label": "SvelteKit Docs: Introduction", "url": "https://kit.svelte.dev/docs/introduction" }
+      }
+    },
+    {
+      "id": "nestjs_react_postgres",
+      "name": "NestJS + React + PostgreSQL",
+      "tier": 2,
+      "tierLabel": "Especializado",
+      "description": "Enterprise Node.js framework con arquitectura Angular-like",
+      "bestFor": ["Enterprise apps", "Equipos grandes", "Arquitectura escalable con Node.js"],
+      "technologies": {
+        "frontend": "React",
+        "backend": "NestJS (Node.js + TypeScript)",
+        "database": "PostgreSQL",
+        "hosting": "AWS / DigitalOcean",
+        "auth": "Passport / JWT",
+        "styling": "TailwindCSS / Ant Design"
+      },
+      "pros": ["Arquitectura muy estructurada", "TypeScript first", "Dependency injection", "Ideal para equipos grandes"],
+      "cons": ["Overkill para proyectos pequeños", "Más verbose que Express"],
+      "learningCurve": "high",
+      "community": "good",
+      "estimatedCost": "$30-60/month",
+      "setupTime": "8-12 hours",
+      "scalability": "very high",
+      "tags": ["nodejs", "typescript", "react", "enterprise", "structured"],
+      "resources": {
+        "docs": { "label": "Documentación oficial NestJS", "url": "https://docs.nestjs.com" },
+        "tutorial": { "label": "NestJS Crash Course – Academind (YouTube)", "url": "https://www.youtube.com/watch?v=2n3xS89TJMI" },
+        "quickstart": { "label": "NestJS First Steps", "url": "https://docs.nestjs.com/first-steps" }
+      }
+    },
+    {
+      "id": "spring_react_postgres",
+      "name": "Spring Boot + React + PostgreSQL",
+      "tier": 3,
+      "tierLabel": "Enterprise",
+      "description": "Enterprise Java stack para aplicaciones críticas",
+      "bestFor": ["Enterprise Java shops", "Banca / Fintech", "Aplicaciones críticas"],
+      "technologies": {
+        "frontend": "React",
+        "backend": "Spring Boot (Java)",
+        "database": "PostgreSQL",
+        "hosting": "AWS / Azure / On-premise",
+        "auth": "Spring Security / OAuth2",
+        "styling": "Material-UI / Ant Design"
+      },
+      "pros": ["Ecosystem enterprise maduro", "Seguridad robusta", "Performance excelente", "Soporte comercial"],
+      "cons": ["Curva de aprendizaje muy steep", "Verbose (mucho boilerplate)", "Setup complejo", "No ideal para startups"],
+      "learningCurve": "very high",
+      "community": "excellent",
+      "estimatedCost": "$50-200/month",
+      "setupTime": "15-25 hours",
+      "scalability": "very high",
+      "tags": ["java", "enterprise", "react", "banking", "fintech"],
+      "resources": {
+        "docs": { "label": "Spring Boot Reference Documentation", "url": "https://spring.io/projects/spring-boot" },
+        "tutorial": { "label": "Spring Boot Full Course – Amigoscode (YouTube)", "url": "https://www.youtube.com/watch?v=9SGDpanrc8U" },
+        "quickstart": { "label": "Spring Quickstart Guide", "url": "https://spring.io/quickstart" }
+      }
+    },
+    {
+      "id": "aspnet_react_sqlserver",
+      "name": "ASP.NET Core + React + SQL Server",
+      "tier": 3,
+      "tierLabel": "Enterprise",
+      "description": "Microsoft stack completo para enterprise",
+      "bestFor": ["Microsoft shops", "Enterprise Windows", ".NET developers"],
+      "technologies": {
+        "frontend": "React",
+        "backend": "ASP.NET Core (C#)",
+        "database": "SQL Server",
+        "hosting": "Azure",
+        "auth": "Azure AD / Identity",
+        "styling": "Material-UI / Fluent UI"
+      },
+      "pros": ["Integración perfecta con Azure", "Performance excelente", "Visual Studio tooling", "Ecosystem Microsoft completo"],
+      "cons": ["Vendor lock-in con Microsoft", "Menos flexible fuera de Windows"],
+      "learningCurve": "high",
+      "community": "excellent",
+      "estimatedCost": "$40-150/month",
+      "setupTime": "12-20 hours",
+      "scalability": "very high",
+      "tags": ["dotnet", "csharp", "microsoft", "enterprise", "azure"],
+      "resources": {
+        "docs": { "label": "ASP.NET Core Documentation", "url": "https://learn.microsoft.com/aspnet/core" },
+        "tutorial": { "label": "ASP.NET Core Full Course – Microsoft Learn", "url": "https://learn.microsoft.com/training/paths/aspnet-core-web-app/" },
+        "quickstart": { "label": "Create your first ASP.NET Core app", "url": "https://dotnet.microsoft.com/learn/aspnet/hello-world-tutorial/intro" }
+      }
+    },
+    {
+      "id": "laravel_postgres",
+      "name": "Laravel + PostgreSQL",
+      "tier": 3,
+      "tierLabel": "Enterprise",
+      "description": "PHP moderno con el framework más elegante del ecosistema",
+      "bestFor": ["PHP developers", "Rapid prototyping", "Traditional web apps"],
+      "technologies": {
+        "frontend": "Blade / Livewire / Inertia + React",
+        "backend": "Laravel (PHP)",
+        "database": "PostgreSQL",
+        "hosting": "Laravel Forge / DigitalOcean",
+        "auth": "Laravel Breeze / Jetstream",
+        "styling": "TailwindCSS"
+      },
+      "pros": ["Ecosystem muy completo", "Eloquent ORM excelente", "Admin panel con Nova", "Deployment simple con Forge"],
+      "cons": ["PHP no es trendy", "Performance inferior a Node/Go", "Menos atractivo para nuevos devs"],
+      "learningCurve": "medium",
+      "community": "excellent",
+      "estimatedCost": "$15-40/month",
+      "setupTime": "6-10 hours",
+      "scalability": "medium-high",
+      "tags": ["php", "laravel", "traditional", "rapid", "monolith"],
+      "resources": {
+        "docs": { "label": "Laravel Documentation", "url": "https://laravel.com/docs" },
+        "tutorial": { "label": "Laravel Bootcamp (oficial, gratis)", "url": "https://bootcamp.laravel.com" },
+        "quickstart": { "label": "Laravel Installation", "url": "https://laravel.com/docs/installation" }
+      }
+    },
+    {
+      "id": "shopify",
+      "name": "Shopify",
+      "tier": 4,
+      "tierLabel": "Necesidad Específica",
+      "description": "Plataforma e-commerce llave en mano, la más completa del mundo",
+      "bestFor": ["E-commerce puro", "Non-technical founders", "Venta rápida online"],
+      "technologies": {
+        "frontend": "Shopify Liquid / Hydrogen (React)",
+        "backend": "Shopify Platform",
+        "database": "Managed by Shopify",
+        "hosting": "Shopify Cloud",
+        "auth": "Shopify Auth",
+        "styling": "Liquid / TailwindCSS"
+      },
+      "pros": ["E-commerce completo out of the box", "Pagos, inventario, shipping integrados", "Apps ecosystem enorme", "Lanzar tienda en horas"],
+      "cons": ["Solo para e-commerce", "Vendor lock-in total", "Costos de transacción", "Customización limitada"],
+      "learningCurve": "very low",
+      "community": "excellent",
+      "estimatedCost": "$29-299/month + transaction fees",
+      "setupTime": "2-4 hours",
+      "scalability": "high",
+      "tags": ["ecommerce", "nocode", "shopify", "fast", "managed"],
+      "resources": {
+        "docs": { "label": "Shopify Help Center", "url": "https://help.shopify.com" },
+        "tutorial": { "label": "Shopify Academy (gratis)", "url": "https://www.shopify.com/learn" },
+        "quickstart": { "label": "Crear tu tienda Shopify", "url": "https://www.shopify.com/free-trial" }
+      }
+    },
+    {
+      "id": "supabase_nextjs",
+      "name": "Supabase + Next.js",
+      "tier": 4,
+      "tierLabel": "Necesidad Específica",
+      "description": "Firebase alternative open-source con PostgreSQL real",
+      "bestFor": ["Minimal backend", "Rapid prototyping", "Auth + DB instantáneos"],
+      "technologies": {
+        "frontend": "Next.js",
+        "backend": "Supabase (PostgreSQL + Auth + Storage)",
+        "database": "PostgreSQL (managed)",
+        "hosting": "Vercel + Supabase",
+        "auth": "Supabase Auth",
+        "styling": "TailwindCSS"
+      },
+      "pros": ["Backend instant sin configuración", "PostgreSQL real (no NoSQL)", "Open source (self-hostable)", "Free tier generoso"],
+      "cons": ["Menos maduro que Firebase", "Algunas features en beta", "Vendor lock-in si no self-hosteas"],
+      "learningCurve": "low-medium",
+      "community": "growing",
+      "estimatedCost": "$0-25/month",
+      "setupTime": "2-4 hours",
+      "scalability": "medium-high",
+      "tags": ["supabase", "postgres", "baas", "nextjs", "fast"],
+      "resources": {
+        "docs": { "label": "Supabase Docs", "url": "https://supabase.com/docs" },
+        "tutorial": { "label": "Supabase + Next.js Tutorial – Supabase oficial", "url": "https://www.youtube.com/watch?v=dU7GwCOgvNY" },
+        "quickstart": { "label": "Supabase Quickstart con Next.js", "url": "https://supabase.com/docs/guides/getting-started/quickstarts/nextjs" }
+      }
+    },
+    {
+      "id": "headless_cms_nextjs",
+      "name": "Headless CMS + Next.js",
+      "tier": 4,
+      "tierLabel": "Necesidad Específica",
+      "description": "Content-first architecture con CMS desacoplado para equipos con no-técnicos",
+      "bestFor": ["Content-heavy apps", "Marketing sites", "Editorial platforms"],
+      "technologies": {
+        "frontend": "Next.js",
+        "backend": "Headless CMS (Contentful / Sanity / Strapi)",
+        "database": "CMS Database",
+        "hosting": "Vercel",
+        "auth": "NextAuth",
+        "styling": "TailwindCSS"
+      },
+      "pros": ["Editores no-técnicos pueden manejar contenido", "Preview/draft modes", "Multi-channel publishing", "SEO excelente"],
+      "cons": ["Costos del CMS adicionales", "Complejidad mayor", "Posible vendor lock-in"],
+      "learningCurve": "medium",
+      "community": "good",
+      "estimatedCost": "$30-100/month",
+      "setupTime": "6-10 hours",
+      "scalability": "high",
+      "tags": ["cms", "content", "nextjs", "headless", "editorial"],
+      "resources": {
+        "docs": { "label": "Sanity.io Docs (CMS recomendado)", "url": "https://www.sanity.io/docs" },
+        "tutorial": { "label": "Next.js + Sanity Tutorial – Traversy Media", "url": "https://www.youtube.com/watch?v=663EM8LTRZY" },
+        "quickstart": { "label": "Sanity Get Started", "url": "https://www.sanity.io/get-started" }
+      }
+    },
+    {
+      "id": "graphql_apollo_react",
+      "name": "GraphQL API + Apollo + React",
+      "tier": 4,
+      "tierLabel": "Necesidad Específica",
+      "description": "API-first design con GraphQL para data fetching flexible",
+      "bestFor": ["API-first apps", "Mobile + Web compartiendo API", "Data fetching complejo"],
+      "technologies": {
+        "frontend": "React + Apollo Client",
+        "backend": "Apollo Server / Hasura",
+        "database": "PostgreSQL",
+        "hosting": "Vercel + Railway",
+        "auth": "JWT / OAuth2",
+        "styling": "TailwindCSS"
+      },
+      "pros": ["Single endpoint para todo", "Type safety end-to-end", "Evita over-fetching", "Excelente para mobile + web"],
+      "cons": ["Complejidad adicional", "Caching más difícil", "Puede ser overkill"],
+      "learningCurve": "high",
+      "community": "good",
+      "estimatedCost": "$25-50/month",
+      "setupTime": "10-15 hours",
+      "scalability": "very high",
+      "tags": ["graphql", "apollo", "react", "api-first", "modern"],
+      "resources": {
+        "docs": { "label": "Apollo GraphQL Documentation", "url": "https://www.apollographql.com/docs" },
+        "tutorial": { "label": "GraphQL Full Course – freeCodeCamp", "url": "https://www.youtube.com/watch?v=ed8SzALpx1Q" },
+        "quickstart": { "label": "Apollo React Get Started", "url": "https://www.apollographql.com/docs/react/get-started" }
+      }
+    },
+    {
+      "id": "serverless_lambda_react",
+      "name": "Serverless (AWS Lambda) + React",
+      "tier": 4,
+      "tierLabel": "Necesidad Específica",
+      "description": "Event-driven architecture sin servidores, paga solo lo que usas",
+      "bestFor": ["Event-driven apps", "Traffic variable", "Pay-per-use"],
+      "technologies": {
+        "frontend": "React",
+        "backend": "AWS Lambda + API Gateway",
+        "database": "DynamoDB / RDS",
+        "hosting": "S3 + CloudFront + Lambda",
+        "auth": "AWS Cognito",
+        "styling": "TailwindCSS"
+      },
+      "pros": ["Paga solo por ejecución", "Auto-scaling infinito", "No server management", "Ideal para traffic variable"],
+      "cons": ["Cold starts", "Debugging complejo", "Vendor lock-in AWS", "Curva de aprendizaje steep"],
+      "learningCurve": "very high",
+      "community": "good",
+      "estimatedCost": "$5-100/month (usage-based)",
+      "setupTime": "12-20 hours",
+      "scalability": "very high",
+      "tags": ["serverless", "aws", "lambda", "event-driven", "scalable"],
+      "resources": {
+        "docs": { "label": "AWS Lambda Developer Guide", "url": "https://docs.aws.amazon.com/lambda/latest/dg/welcome.html" },
+        "tutorial": { "label": "AWS Serverless Full Course – Mosh", "url": "https://www.youtube.com/watch?v=SpmQMtO2MPM" },
+        "quickstart": { "label": "AWS Serverless Getting Started", "url": "https://aws.amazon.com/serverless/getting-started/" }
+      }
+    },
+    {
+      "id": "blockchain_solidity_react",
+      "name": "Blockchain (Solidity) + React",
+      "tier": 4,
+      "tierLabel": "Necesidad Específica",
+      "description": "Web3 apps con smart contracts en Ethereum/Polygon",
+      "bestFor": ["Web3 projects", "DApps", "Blockchain apps", "Crypto"],
+      "technologies": {
+        "frontend": "React + Web3.js / Ethers.js",
+        "backend": "Solidity Smart Contracts",
+        "database": "Blockchain (Ethereum / Polygon)",
+        "hosting": "IPFS / Vercel",
+        "auth": "Wallet Connect / MetaMask",
+        "styling": "TailwindCSS"
+      },
+      "pros": ["Decentralized", "Trustless execution", "Transparency", "Cutting edge"],
+      "cons": ["Gas fees (costoso)", "Curva de aprendizaje extrema", "Debugging muy difícil", "UX complejo para usuarios"],
+      "learningCurve": "very high",
+      "community": "growing",
+      "estimatedCost": "$50-500/month (gas dependent)",
+      "setupTime": "20-40 hours",
+      "scalability": "medium",
+      "tags": ["web3", "blockchain", "solidity", "react", "crypto"],
+      "resources": {
+        "docs": { "label": "Solidity Documentation", "url": "https://docs.soliditylang.org" },
+        "tutorial": { "label": "CryptoZombies – aprende Solidity jugando", "url": "https://cryptozombies.io" },
+        "quickstart": { "label": "Hardhat Getting Started", "url": "https://hardhat.org/getting-started/" }
+      }
+    },
+    {
+      "id": "elixir_phoenix_postgres",
+      "name": "Elixir + Phoenix + PostgreSQL",
+      "tier": 4,
+      "tierLabel": "Necesidad Específica",
+      "description": "Fault-tolerant real-time apps con Erlang VM – el stack de WhatsApp",
+      "bestFor": ["Real-time apps de alta escala", "High concurrency", "Fault tolerance crítica"],
+      "technologies": {
+        "frontend": "Phoenix LiveView / React",
+        "backend": "Phoenix (Elixir)",
+        "database": "PostgreSQL",
+        "hosting": "Fly.io / Gigalixir",
+        "auth": "Guardian / Pow",
+        "styling": "TailwindCSS"
+      },
+      "pros": ["Real-time con LiveView (casi cero JS)", "Fault tolerance increíble", "Concurrencia sin esfuerzo", "Performance excelente"],
+      "cons": ["Curva de aprendizaje steep", "Comunidad pequeña", "Menos recursos/jobs", "Paradigma funcional"],
+      "learningCurve": "very high",
+      "community": "small but passionate",
+      "estimatedCost": "$20-50/month",
+      "setupTime": "15-25 hours",
+      "scalability": "very high",
+      "tags": ["elixir", "phoenix", "realtime", "functional", "fault-tolerant"],
+      "resources": {
+        "docs": { "label": "Phoenix Framework Guides", "url": "https://hexdocs.pm/phoenix/overview.html" },
+        "tutorial": { "label": "Elixir School (gratis, en español)", "url": "https://elixirschool.com/es" },
+        "quickstart": { "label": "Phoenix Up and Running", "url": "https://hexdocs.pm/phoenix/up_and_running.html" }
+      }
+    },
+    {
+      "id": "wordpress_woocommerce",
+      "name": "WordPress + WooCommerce",
+      "tier": 1,
+      "tierLabel": "Popular & Recomendado",
+      "description": "El CMS más usado del mundo — ideal para blogs, tiendas y sitios de contenido sin código",
+      "bestFor": ["Blogs y sitios de contenido", "E-commerce accesible", "Fundadores no-técnicos", "Negocios locales"],
+      "technologies": {
+        "frontend": "WordPress Themes / Gutenberg / Elementor",
+        "backend": "PHP + WordPress Core",
+        "database": "MySQL",
+        "hosting": "WP Engine / Hostinger / SiteGround",
+        "auth": "WordPress Auth + WooCommerce",
+        "styling": "CSS / Page Builders"
+      },
+      "pros": ["43% de toda la web corre en WordPress", "Miles de plugins y themes listos", "Sin código para casi todo", "Hosting desde $5/mes", "Community enorme con soporte en español"],
+      "cons": ["Performance inferior sin optimización", "Seguridad requiere mantenimiento activo (plugins desactualizados)", "Difícil de escalar para apps complejas con lógica custom", "Deuda técnica con plugins de terceros"],
+      "learningCurve": "low",
+      "community": "excellent",
+      "estimatedCost": "$10-50/month",
+      "setupTime": "1-3 hours",
+      "scalability": "medium",
+      "tags": ["php", "wordpress", "cms", "ecommerce", "no-code", "beginner-friendly", "content", "managed"],
+      "usedBy": ["BBC America", "TechCrunch", "The White House", "Sony Music", "Mercedes-Benz"],
+      "resources": {
+        "docs": { "label": "WordPress.org — Documentación oficial", "url": "https://wordpress.org/documentation/" },
+        "tutorial": { "label": "WordPress para principiantes — freeCodeCamp (YouTube)", "url": "https://www.youtube.com/watch?v=O79pJ7qXwoE" },
+        "quickstart": { "label": "Instalar WordPress en 5 minutos", "url": "https://wordpress.org/documentation/article/how-to-install-wordpress/" }
+      }
+    },
+    {
+      "id": "laravel_vue_inertia",
+      "name": "Laravel + Vue.js + Inertia.js",
+      "tier": 1,
+      "tierLabel": "Popular & Recomendado",
+      "description": "El stack favorito de LATAM — convenciones claras, DX excepcional y ecosistema maduro",
+      "bestFor": ["SaaS en LATAM", "E-commerce custom", "APIs robustas", "Equipos con background PHP"],
+      "technologies": {
+        "frontend": "Vue.js 3 + Inertia.js",
+        "backend": "Laravel 11 (PHP)",
+        "database": "MySQL / PostgreSQL",
+        "hosting": "Laravel Forge / Railway / DigitalOcean",
+        "auth": "Laravel Breeze / Sanctum",
+        "styling": "TailwindCSS"
+      },
+      "pros": ["Convenciones que aceleran el desarrollo 3x", "Eloquent ORM es una maravilla", "Inertia elimina la necesidad de API REST separada", "Comunidad hispanohablante enorme", "Laracasts — los mejores tutoriales del ecosistema"],
+      "cons": ["PHP tiene estigma en algunos círculos tech modernos", "Menor demanda laboral que JS en startups VC-backed", "Curva si solo sabés JavaScript/TypeScript"],
+      "learningCurve": "medium",
+      "community": "excellent",
+      "estimatedCost": "$15-40/month",
+      "setupTime": "4-8 hours",
+      "scalability": "high",
+      "tags": ["php", "laravel", "vue", "inertia", "fullstack", "monolith", "latam"],
+      "usedBy": ["Laracasts", "Oh Dear", "Ploi.io", "Envoyer", "Invoice Ninja"],
+      "resources": {
+        "docs": { "label": "Laravel Docs — Documentación oficial", "url": "https://laravel.com/docs" },
+        "tutorial": { "label": "Laravel Bootcamp — Tutorial oficial paso a paso", "url": "https://bootcamp.laravel.com" },
+        "quickstart": { "label": "Crear app con Laravel Breeze (starter kit)", "url": "https://laravel.com/docs/starter-kits" }
+      }
+    },
+    {
+      "id": "nuxt_supabase",
+      "name": "Nuxt.js + Supabase",
+      "tier": 1,
+      "tierLabel": "Popular & Recomendado",
+      "description": "Next.js para el ecosistema Vue — SSR, SSG y BaaS todo en uno",
+      "bestFor": ["SaaS con Vue", "Proyectos SEO-first", "Equipos Vue.js", "Apps con backend mínimo"],
+      "technologies": {
+        "frontend": "Nuxt 3 (Vue.js)",
+        "backend": "Nuxt Server Routes + Supabase",
+        "database": "PostgreSQL (Supabase)",
+        "hosting": "Vercel / Netlify",
+        "auth": "Supabase Auth",
+        "styling": "TailwindCSS"
+      },
+      "pros": ["Auto-imports y DX de primer nivel", "SSR, SSG e ISR out-of-the-box", "Supabase reemplaza backend completo", "Vue 3 Composition API — código más limpio", "Módulos Nuxt para casi todo"],
+      "cons": ["Menor comunidad que Next.js", "Supabase vendor lock-in", "Menos recursos educativos en español que React"],
+      "learningCurve": "medium",
+      "community": "good",
+      "estimatedCost": "$15-40/month",
+      "setupTime": "3-6 hours",
+      "scalability": "high",
+      "tags": ["javascript", "typescript", "vue", "nuxt", "supabase", "fullstack", "seo", "fast"],
+      "usedBy": ["GitLab", "Nuxt.js team apps", "Maison Margiela", "Starbucks France"],
+      "resources": {
+        "docs": { "label": "Nuxt 3 — Documentación oficial", "url": "https://nuxt.com/docs" },
+        "tutorial": { "label": "Nuxt 3 Crash Course — Traversy Media (YouTube)", "url": "https://www.youtube.com/watch?v=GBdO5myZNsQ" },
+        "quickstart": { "label": "Crear tu primer proyecto Nuxt", "url": "https://nuxt.com/docs/getting-started/installation" }
+      }
+    },
+    {
+      "id": "remix_postgres",
+      "name": "Remix + PostgreSQL",
+      "tier": 2,
+      "tierLabel": "Especializado",
+      "description": "Framework React-first que abraza la Web Platform — performance excepcional y cero estados de carga",
+      "bestFor": ["Apps con SEO crítico", "E-commerce performante", "Forms y mutaciones complejas", "Devs que buscan alternativa a Next.js"],
+      "technologies": {
+        "frontend": "React (Remix)",
+        "backend": "Remix Server Actions (Node.js)",
+        "database": "PostgreSQL (Prisma ORM)",
+        "hosting": "Fly.io / Vercel",
+        "auth": "Remix Auth",
+        "styling": "TailwindCSS"
+      },
+      "pros": ["Progressive enhancement — funciona sin JavaScript", "Error boundaries por ruta (UX excepcional)", "Formularios nativos sin estado en cliente", "Performance top-tier out-of-the-box", "Sin loading spinners — data siempre disponible"],
+      "cons": ["Paradigma diferente que requiere adaptación (loaders/actions)", "Menor comunidad que Next.js", "Menos plugins y starters disponibles", "Curva de aprendizaje si venís de Next.js"],
+      "learningCurve": "medium-high",
+      "community": "growing",
+      "estimatedCost": "$20-50/month",
+      "setupTime": "4-8 hours",
+      "scalability": "high",
+      "tags": ["javascript", "typescript", "react", "remix", "fullstack", "seo", "performance"],
+      "usedBy": ["Shopify", "Stripe Dashboard", "GitHub", "Netlify"],
+      "resources": {
+        "docs": { "label": "Remix — Documentación oficial", "url": "https://remix.run/docs" },
+        "tutorial": { "label": "Remix Jokes App — Tutorial oficial", "url": "https://remix.run/docs/en/main/tutorials/jokes" },
+        "quickstart": { "label": "Crear tu primer proyecto Remix", "url": "https://remix.run/docs/en/main/start/quickstart" }
+      }
+    },
+    {
+      "id": "angular_node_postgres",
+      "name": "Angular + Node.js + PostgreSQL",
+      "tier": 2,
+      "tierLabel": "Especializado",
+      "description": "Framework enterprise de Google — arquitectura opinada ideal para equipos grandes y proyectos corporativos",
+      "bestFor": ["Enterprise apps", "Equipos grandes (10+ devs)", "Apps con arquitectura compleja", "Proyectos con Java/C# background"],
+      "technologies": {
+        "frontend": "Angular 17",
+        "backend": "Node.js + NestJS",
+        "database": "PostgreSQL",
+        "hosting": "Google Cloud / Azure / AWS",
+        "auth": "Angular Auth OIDC / Auth0",
+        "styling": "Angular Material"
+      },
+      "pros": ["TypeScript nativo — type safety garantizado", "Dependency Injection y arquitectura modular", "CLI potente — genera código con un comando", "LTS largo garantizado por Google", "Angular Material — UI components enterprise"],
+      "cons": ["Curva de aprendizaje pronunciada (Modules, DI, RxJS)", "Boilerplate excesivo para proyectos simples", "Bundle size mayor que React/Vue", "Over-engineered para MVPs y side projects"],
+      "learningCurve": "high",
+      "community": "excellent",
+      "estimatedCost": "$30-80/month",
+      "setupTime": "8-16 hours",
+      "scalability": "very high",
+      "tags": ["javascript", "typescript", "angular", "enterprise", "separated", "api", "large-team"],
+      "usedBy": ["Google", "Microsoft", "Deutsche Bank", "Forbes", "Santander"],
+      "resources": {
+        "docs": { "label": "Angular — Documentación oficial", "url": "https://angular.dev/overview" },
+        "tutorial": { "label": "Tour of Heroes — Tutorial oficial de Angular", "url": "https://angular.dev/tutorials/learn-angular" },
+        "quickstart": { "label": "Angular CLI — Crear tu primer proyecto", "url": "https://angular.dev/tools/cli" }
+      }
+    },
+    {
+      "id": "pocketbase_react",
+      "name": "PocketBase + React",
+      "tier": 2,
+      "tierLabel": "Especializado",
+      "description": "Backend completo en un solo binario Go — la opción perfecta para indie hackers y MVPs rápidos",
+      "bestFor": ["Indie hackers", "MVPs ultra-rápidos", "Proyectos self-hosted", "Apps con presupuesto mínimo"],
+      "technologies": {
+        "frontend": "React (Vite) / Next.js / cualquier SPA",
+        "backend": "PocketBase (Go — archivo único ejecutable)",
+        "database": "SQLite (embedded)",
+        "hosting": "Fly.io / VPS / DigitalOcean",
+        "auth": "PocketBase Auth (email, OAuth2, OTP)",
+        "styling": "TailwindCSS"
+      },
+      "pros": ["Backend completo: DB + auth + admin UI + storage en un solo binario", "Setup en menos de 5 minutos", "Admin UI incluido out-of-the-box", "SQLite embedded — zero configuración de DB", "Hosting en VPS desde $4/mes"],
+      "cons": ["SQLite no escala a millones de escrituras concurrentes", "Vendor lock-in al schema de PocketBase", "Comunidad pequeña (aunque creciendo rápido)", "No apto para apps con requisitos enterprise"],
+      "learningCurve": "low-medium",
+      "community": "growing",
+      "estimatedCost": "$5-20/month",
+      "setupTime": "1-4 hours",
+      "scalability": "medium",
+      "tags": ["go", "javascript", "react", "baas", "managed", "self-hosted", "indie", "fast", "beginner-friendly"],
+      "usedBy": ["Miles de indie hackers", "Proyectos open-source", "MVPs de startups"],
+      "resources": {
+        "docs": { "label": "PocketBase — Documentación oficial", "url": "https://pocketbase.io/docs/" },
+        "tutorial": { "label": "PocketBase + React Crash Course (YouTube)", "url": "https://www.youtube.com/watch?v=Wqy3PBEglXQ" },
+        "quickstart": { "label": "PocketBase — Descargar y empezar en 5 min", "url": "https://pocketbase.io/docs/" }
+      }
+    },
+    {
+      "id": "payload_nextjs",
+      "name": "Payload CMS + Next.js",
+      "tier": 2,
+      "tierLabel": "Especializado",
+      "description": "CMS headless moderno con TypeScript nativo — sin monthly fees y completamente customizable",
+      "bestFor": ["Blogs y editoriales avanzadas", "E-commerce con gestión de contenido", "Apps con admin panel propio", "Devs que odian Contentful/Sanity pricing"],
+      "technologies": {
+        "frontend": "Next.js 14 (App Router)",
+        "backend": "Payload CMS 3.0 (Node.js)",
+        "database": "PostgreSQL / MongoDB",
+        "hosting": "Vercel + MongoDB Atlas / Railway",
+        "auth": "Payload Auth (roles, collections)",
+        "styling": "TailwindCSS"
+      },
+      "pros": ["CMS headless con TypeScript de extremo a extremo", "Admin panel beautiful incluido sin configuración", "Open source — sin monthly fee de CMS externo", "Flexible: puede ser headless o full-stack", "Payload 3.0 corre dentro de Next.js (mismo proceso)"],
+      "cons": ["Curva de configuración inicial más alta que Sanity", "Comunidad más pequeña que Contentful/Sanity", "MongoDB como DB por defecto (aunque soporta PostgreSQL)"],
+      "learningCurve": "medium-high",
+      "community": "growing",
+      "estimatedCost": "$20-50/month",
+      "setupTime": "4-10 hours",
+      "scalability": "high",
+      "tags": ["javascript", "typescript", "react", "nextjs", "cms", "headless", "content"],
+      "usedBy": ["Empresas que migran de Contentful", "Agencias digitales", "Plataformas editoriales"],
+      "resources": {
+        "docs": { "label": "Payload CMS — Documentación oficial", "url": "https://payloadcms.com/docs" },
+        "tutorial": { "label": "Payload CMS 3.0 Full Course (YouTube)", "url": "https://www.youtube.com/watch?v=6jkNjfm-fRY" },
+        "quickstart": { "label": "Crear un proyecto Payload en un comando", "url": "https://payloadcms.com/docs/getting-started/installation" }
+      }
+    }
+  ]
+}

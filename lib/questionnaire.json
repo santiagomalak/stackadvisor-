@@ -1,0 +1,486 @@
+{
+  "metadata": {
+    "version": "2.0",
+    "totalQuestions": 13,
+    "estimatedTime": "5 minutos",
+    "sections": 4
+  },
+  "sections": [
+    {
+      "id": "section_1",
+      "title": "Tu Proyecto",
+      "description": "Cuéntanos qué estás construyendo",
+      "questions": [
+        {
+          "id": "q1",
+          "section": 1,
+          "question": "¿Qué tipo de proyecto quieres construir?",
+          "type": "single-choice",
+          "required": true,
+          "options": [
+            {
+              "id": "blog",
+              "label": "Blog / Sitio de contenido",
+              "description": "Artículos, portfolio, landing pages, sitio informativo",
+              "value": "blog"
+            },
+            {
+              "id": "ecommerce",
+              "label": "E-commerce / Tienda online",
+              "description": "Vender productos físicos o digitales con carrito de compras",
+              "value": "ecommerce"
+            },
+            {
+              "id": "saas",
+              "label": "SaaS / App web con usuarios",
+              "description": "App con login, dashboard, suscripciones (como Notion, Slack, Trello)",
+              "value": "saas"
+            },
+            {
+              "id": "mobile",
+              "label": "App móvil (iOS / Android)",
+              "description": "Aplicación que se descarga desde el App Store o Google Play",
+              "value": "mobile"
+            },
+            {
+              "id": "dashboard",
+              "label": "Dashboard / Herramienta interna",
+              "description": "Panel de control, reporte de métricas, herramienta para tu equipo",
+              "value": "dashboard"
+            },
+            {
+              "id": "api",
+              "label": "API / Backend para terceros",
+              "description": "Servicio que otros van a consumir, sin interfaz propia",
+              "value": "api"
+            },
+            {
+              "id": "social",
+              "label": "Red social / Comunidad",
+              "description": "Plataforma con perfiles, posts, comentarios, seguidores",
+              "value": "social"
+            },
+            {
+              "id": "game",
+              "label": "Juego / Entretenimiento",
+              "description": "Videojuego web, quiz, experiencia interactiva",
+              "value": "game"
+            }
+          ]
+        },
+        {
+          "id": "q2",
+          "section": 1,
+          "question": "¿Cuándo necesitas tener el MVP listo?",
+          "type": "single-choice",
+          "required": true,
+          "options": [
+            {
+              "id": "urgent",
+              "label": "Urgente (1-2 meses)",
+              "description": "Necesito lanzar ya — velocidad es todo",
+              "value": "urgent"
+            },
+            {
+              "id": "normal",
+              "label": "Normal (2-3 meses)",
+              "description": "Tengo un plazo razonable sin apuro extremo",
+              "value": "normal"
+            },
+            {
+              "id": "flexible",
+              "label": "Flexible (4+ meses)",
+              "description": "Puedo hacerlo bien sin sacrificar calidad",
+              "value": "flexible"
+            },
+            {
+              "id": "no_rush",
+              "label": "Sin prisa (6+ meses)",
+              "description": "Proyecto personal o exploración — quiero aprender en el proceso",
+              "value": "no_rush"
+            }
+          ]
+        },
+        {
+          "id": "q3",
+          "section": 1,
+          "question": "¿Cuántas personas van a desarrollar esto?",
+          "type": "single-choice",
+          "required": true,
+          "options": [
+            {
+              "id": "solo",
+              "label": "Solo yo",
+              "description": "Voy a desarrollarlo completamente solo",
+              "value": "solo",
+              "teamSize": 1
+            },
+            {
+              "id": "small",
+              "label": "Equipo pequeño (2-3 personas)",
+              "description": "Un par de developers colaborando",
+              "value": "small",
+              "teamSize": 2
+            },
+            {
+              "id": "medium",
+              "label": "Equipo mediano (4-10 personas)",
+              "description": "Equipo con roles diferenciados",
+              "value": "medium",
+              "teamSize": 5
+            },
+            {
+              "id": "large",
+              "label": "Equipo grande (10+ personas)",
+              "description": "Organización con múltiples equipos",
+              "value": "large",
+              "teamSize": 10
+            }
+          ]
+        },
+        {
+          "id": "q4",
+          "section": 1,
+          "question": "¿Cuál es tu nivel de experiencia en desarrollo?",
+          "type": "single-choice",
+          "required": true,
+          "options": [
+            {
+              "id": "non_technical",
+              "label": "No técnico — no sé programar",
+              "description": "Soy founder, diseñador o de negocio. Necesito soluciones sin código",
+              "value": "non_technical",
+              "level": 0
+            },
+            {
+              "id": "junior",
+              "label": "Aprendiendo (menos de 2 años)",
+              "description": "Conozco los básicos, tengo proyectos pequeños pero aún me trabo",
+              "value": "junior",
+              "level": 1
+            },
+            {
+              "id": "mid",
+              "label": "Intermedio (2-5 años)",
+              "description": "He trabajado en proyectos reales, puedo manejarlo pero elijo con cuidado",
+              "value": "mid",
+              "level": 2
+            },
+            {
+              "id": "senior",
+              "label": "Senior (5+ años)",
+              "description": "He lanzado proyectos en producción, conozco los trade-offs",
+              "value": "senior",
+              "level": 3
+            },
+            {
+              "id": "varied",
+              "label": "Muy variada (múltiples stacks)",
+              "description": "He trabajado con muchas tecnologías y busco la mejor opción objetiva",
+              "value": "varied",
+              "level": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section_2",
+      "title": "Requisitos",
+      "description": "Prioridades y restricciones de tu proyecto",
+      "questions": [
+        {
+          "id": "q5",
+          "section": 2,
+          "question": "¿Cuál es la prioridad #1 de tu proyecto?",
+          "type": "single-choice",
+          "required": true,
+          "options": [
+            {
+              "id": "speed",
+              "label": "Lanzar RÁPIDO (speed to market)",
+              "description": "Prefiero algo que funcione hoy a algo perfecto en 6 meses",
+              "value": "speed"
+            },
+            {
+              "id": "scalability",
+              "label": "Escalabilidad",
+              "description": "Espero crecer mucho — quiero que el stack aguante 10x usuarios",
+              "value": "scalability"
+            },
+            {
+              "id": "reliability",
+              "label": "Confiabilidad (zero downtime)",
+              "description": "No me puedo permitir caídas — es crítico que siempre esté disponible",
+              "value": "reliability"
+            },
+            {
+              "id": "cost",
+              "label": "Costo mínimo (bootstrapping)",
+              "description": "Estoy con presupuesto ajustado — cada dólar cuenta",
+              "value": "cost"
+            },
+            {
+              "id": "maintainability",
+              "label": "Fácil de mantener long-term",
+              "description": "Quiero código limpio y simple que sea fácil de cambiar en el futuro",
+              "value": "maintainability"
+            }
+          ]
+        },
+        {
+          "id": "q6",
+          "section": 2,
+          "question": "¿Qué tan importante es la velocidad/performance?",
+          "type": "single-choice",
+          "required": true,
+          "options": [
+            {
+              "id": "not_critical",
+              "label": "No importa mucho",
+              "description": "Un chat interno o herramienta simple — si tarda 2 segundos está bien",
+              "value": "not_critical"
+            },
+            {
+              "id": "normal",
+              "label": "Importante pero no crítica",
+              "description": "E-commerce, SaaS — debe ser rápido para buena UX",
+              "value": "normal"
+            },
+            {
+              "id": "critical",
+              "label": "Muy crítica",
+              "description": "Fintech, search engine — la velocidad afecta directamente el negocio",
+              "value": "critical"
+            },
+            {
+              "id": "ultra_critical",
+              "label": "Ultra crítica (latencia <100ms)",
+              "description": "Real-time, trading, gaming — milisegundos importan",
+              "value": "ultra_critical"
+            }
+          ]
+        },
+        {
+          "id": "q7",
+          "section": 2,
+          "question": "¿Qué nivel de seguridad necesita tu app?",
+          "type": "single-choice",
+          "required": true,
+          "options": [
+            {
+              "id": "normal",
+              "label": "Estándar",
+              "description": "SaaS típico — login seguro, datos básicos de usuario",
+              "value": "normal"
+            },
+            {
+              "id": "moderate",
+              "label": "Moderada",
+              "description": "Guardo datos sensibles de usuarios (emails, preferencias, historial)",
+              "value": "moderate"
+            },
+            {
+              "id": "high",
+              "label": "Alta (fintech, healthtech)",
+              "description": "Manejo datos financieros, médicos o de identidad — compliance importante",
+              "value": "high"
+            },
+            {
+              "id": "critical",
+              "label": "Crítica (gobierno, banca)",
+              "description": "Regulación estricta, auditorías, máxima seguridad requerida",
+              "value": "critical"
+            }
+          ]
+        },
+        {
+          "id": "q8",
+          "section": 2,
+          "question": "¿Tu app necesita datos en tiempo real?",
+          "type": "single-choice",
+          "required": true,
+          "options": [
+            {
+              "id": "no",
+              "label": "No, no necesito",
+              "description": "Los datos se cargan al abrir la página — como un blog o tienda",
+              "value": "no"
+            },
+            {
+              "id": "semi",
+              "label": "Semi-real-time",
+              "description": "Los datos se actualizan cada minuto o al hacer refresh",
+              "value": "semi"
+            },
+            {
+              "id": "realtime",
+              "label": "Real-time (instantáneo)",
+              "description": "Chat, notificaciones, cambios que aparecen solos sin recargar",
+              "value": "realtime"
+            },
+            {
+              "id": "streaming",
+              "label": "Streaming continuo",
+              "description": "Datos que fluyen constantemente: precios de bolsa, métricas en vivo",
+              "value": "streaming"
+            }
+          ]
+        },
+        {
+          "id": "q9",
+          "section": 2,
+          "question": "¿Cuánto puedes gastar en hosting/infraestructura al mes?",
+          "type": "single-choice",
+          "required": true,
+          "options": [
+            {
+              "id": "minimal",
+              "label": "Casi nada ($0-10/mes)",
+              "description": "Bootstrapping — quiero aprovechar free tiers al máximo",
+              "value": "minimal",
+              "budget": 10
+            },
+            {
+              "id": "low",
+              "label": "Poco ($10-50/mes)",
+              "description": "Proyecto early-stage con algo de presupuesto",
+              "value": "low",
+              "budget": 50
+            },
+            {
+              "id": "medium",
+              "label": "Razonable ($50-200/mes)",
+              "description": "Producto con primeros clientes, dispuesto a invertir",
+              "value": "medium",
+              "budget": 200
+            },
+            {
+              "id": "unlimited",
+              "label": "Sin límite (enterprise)",
+              "description": "El costo no es una restricción — quiero lo mejor",
+              "value": "unlimited",
+              "budget": 9999
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section_3",
+      "title": "Preferencias",
+      "description": "Cómo quieres que sea técnicamente",
+      "questions": [
+        {
+          "id": "q10",
+          "section": 3,
+          "question": "¿Tienes preferencia de lenguaje o ecosistema?",
+          "type": "single-choice",
+          "required": true,
+          "options": [
+            {
+              "id": "javascript",
+              "label": "JavaScript / TypeScript",
+              "description": "Quiero usar JS en todo — frontend y backend en el mismo ecosistema",
+              "value": "javascript"
+            },
+            {
+              "id": "python",
+              "label": "Python",
+              "description": "Me gusta Python, o necesito integración con datos/ML/IA",
+              "value": "python"
+            },
+            {
+              "id": "no_preference",
+              "label": "Sin preferencia",
+              "description": "No tengo ecosistema favorito — elige lo mejor para mi caso",
+              "value": "no_preference"
+            },
+            {
+              "id": "specialized",
+              "label": "Lenguaje especializado (Go, Rust, etc.)",
+              "description": "Necesito máxima performance o tengo experiencia con lenguajes de sistemas",
+              "value": "specialized"
+            }
+          ]
+        },
+        {
+          "id": "q11",
+          "section": 3,
+          "question": "¿Cómo prefieres estructurar el proyecto?",
+          "type": "single-choice",
+          "required": true,
+          "options": [
+            {
+              "id": "monolith",
+              "label": "Todo en uno (monolito)",
+              "description": "Frontend y backend juntos — más simple de mantener solo",
+              "value": "monolith"
+            },
+            {
+              "id": "separated",
+              "label": "Frontend y backend separados",
+              "description": "API independiente del frontend — más flexible para escalar",
+              "value": "separated"
+            },
+            {
+              "id": "no_preference",
+              "label": "No importa — elige lo mejor",
+              "description": "Decídelo tú según mi caso",
+              "value": "no_preference"
+            }
+          ]
+        },
+        {
+          "id": "q12",
+          "section": 3,
+          "question": "¿En qué plataformas debe correr tu app?",
+          "type": "single-choice",
+          "required": true,
+          "options": [
+            {
+              "id": "web_only",
+              "label": "Solo web (navegador)",
+              "description": "La acceden desde un browser — no necesito app nativa",
+              "value": "web_only"
+            },
+            {
+              "id": "web_mobile",
+              "label": "Web + móvil (iOS/Android)",
+              "description": "Necesito que funcione en el navegador y también como app descargable",
+              "value": "web_mobile"
+            },
+            {
+              "id": "web_mobile_desktop",
+              "label": "Web + móvil + desktop",
+              "description": "Múltiples plataformas con la misma funcionalidad",
+              "value": "web_mobile_desktop"
+            },
+            {
+              "id": "all",
+              "label": "Todas las plataformas",
+              "description": "Máxima cobertura — web, móvil, desktop y más",
+              "value": "all"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section_4",
+      "title": "Últimos Detalles",
+      "description": "Algo más que debamos saber",
+      "questions": [
+        {
+          "id": "q13",
+          "section": 4,
+          "question": "¿Hay algo especial que no cubrimos? (opcional)",
+          "type": "text",
+          "required": false,
+          "placeholder": "Ej: Necesito integración con blockchain, machine learning, procesamiento de video, CMS para no-técnicos, etc.",
+          "maxLength": 500
+        }
+      ]
+    }
+  ]
+}

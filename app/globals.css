@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #3498DB;
+  --accent: #2ECC71;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Animations ──────────────────────────────────────────────────────────── */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.25s ease-out both;
+}
+
+.animate-slide-down {
+  animation: slide-down 0.2s ease-out both;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.2s ease-out both;
+}
+
+/* Stagger children */
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 60ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 120ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 180ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 240ms; }
+.stagger-children > *:nth-child(6) { animation-delay: 300ms; }
+
+/* ─── Scrollbar ───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* ─── Focus ring ──────────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* ─── Print / PDF ──────────────────────────────────────────────────────────── */
+@media print {
+  nav, header, footer, .print-hidden {
+    display: none !important;
+  }
+
+  body, main, section, div {
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  [class*="border"] {
+    border-color: #d1d5db !important;
+  }
+
+  .text-primary { color: #2176ae !important; }
+  .text-accent  { color: #1a9e52 !important; }
+
+  .roadmap-circle {
+    background: #fff !important;
+    border: 2px solid #2176ae !important;
+    color: #2176ae !important;
+  }
+
+  .roadmap-week {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  table {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #6b7280;
+    word-break: break-all;
+  }
+
+  button::after {
+    content: none !important;
+  }
+
+  @page {
+    margin: 1.8cm 2cm;
+    size: A4;
+  }
+}
