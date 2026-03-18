@@ -578,7 +578,7 @@ Obtén tu recomendación gratis en: stackadvisor.vercel.app`;
             <div>
               <h2 className="text-lg font-bold text-gray-900 dark:text-white">¿Querés comparar más stacks?</h2>
               <p className="text-gray-500 dark:text-slate-400 text-sm mt-0.5">
-                Compará los {1 + alternatives.length} stacks recomendados lado a lado, o explorá cualquier combinación de los 28 disponibles
+                Compará los {1 + alternatives.length} stacks recomendados lado a lado, o explorá cualquier combinación de los 35 disponibles
               </p>
             </div>
             <Link

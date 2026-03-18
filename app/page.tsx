@@ -36,7 +36,7 @@ export default function Home() {
       <section className="bg-gradient-to-br from-primary to-blue-700 text-white pt-20 pb-24">
         <div className="container mx-auto px-4 text-center max-w-3xl">
           <div className="inline-block bg-white/10 border border-white/20 text-sm px-4 py-1.5 rounded-full mb-6 font-medium">
-            25+ stacks analizados · Gratis · Sin registro
+            35 stacks analizados · Gratis · Sin registro
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-5 leading-tight">
             ¿No sabes qué tecnología usar para tu proyecto?
@@ -62,7 +62,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto text-center">
             {[
-              { value: '25+', label: 'Stacks cubiertos' },
+              { value: '35', label: 'Stacks cubiertos' },
               { value: '13', label: 'Preguntas inteligentes' },
               { value: '5 min', label: 'Para obtener resultados' },
               { value: '12 sem', label: 'Roadmap detallado' },
@@ -139,8 +139,8 @@ export default function Home() {
               },
               {
                 step: '2',
-                title: 'Nuestro motor analiza 25+ stacks',
-                desc: 'Comparamos tu perfil con 25 stacks probados en producción. Cada stack recibe un score basado en tus respuestas y te explicamos el porqué.',
+                title: 'Nuestro motor analiza 35 stacks',
+                desc: 'Comparamos tu perfil con 35 stacks probados en producción. Cada stack recibe un score basado en tus respuestas y te explicamos el porqué.',
                 color: 'bg-primary',
               },
               {
@@ -202,7 +202,7 @@ export default function Home() {
       <section className="py-16 bg-white dark:bg-slate-800">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-3">Stacks que analizamos</h2>
-          <p className="text-gray-500 dark:text-slate-400 text-center mb-10">25+ opciones desde no-code hasta enterprise</p>
+          <p className="text-gray-500 dark:text-slate-400 text-center mb-10">35 opciones desde no-code hasta enterprise</p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {stacks.map(({ name, tier, icon }) => (
               <div key={name} className="border border-gray-200 dark:border-slate-600 rounded-lg p-4 flex items-center gap-3 hover:border-primary dark:hover:border-primary transition-colors bg-white dark:bg-slate-700">

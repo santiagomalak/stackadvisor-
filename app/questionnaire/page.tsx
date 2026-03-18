@@ -8,7 +8,7 @@ import questionnaireData from '@/lib/questionnaire.json';
 
 const LOADING_STEPS = [
   { label: 'Leyendo tus respuestas...', duration: 600 },
-  { label: 'Evaluando 28 tech stacks...', duration: 900 },
+  { label: 'Evaluando 35 tech stacks...', duration: 900 },
   { label: 'Calculando compatibilidad...', duration: 700 },
   { label: 'Generando tu roadmap...', duration: 600 },
   { label: '¡Listo! Preparando resultados...', duration: 400 },
