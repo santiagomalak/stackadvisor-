@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import Roadmap from '@/components/Roadmap';
 import CostEstimator from '@/components/CostEstimator';
 import PromptGenerator from '@/components/PromptGenerator';
+import AffiliateCards from '@/components/AffiliateCards';
 import Link from 'next/link';
 import { Suspense } from 'react';
 
@@ -481,6 +482,9 @@ Obtén tu recomendación gratis en: stackadvisor.vercel.app`;
             <Roadmap roadmap={primary.roadmap} />
           </div>
         )}
+
+        {/* Affiliate cards */}
+        <AffiliateCards hosting={primary.stack.technologies.hosting} variant="inline" />
 
         {/* Prompt Generator */}
         <PromptGenerator stack={primary.stack} userProfile={result.userProfile || {}} />

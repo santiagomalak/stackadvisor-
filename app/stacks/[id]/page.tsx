@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import stacksData from '@/lib/stacks.json';
 import type { Metadata } from 'next';
+import AffiliateCards from '@/components/AffiliateCards';
 
 const ALL_STACKS: any[] = (stacksData as any).stacks;
 
@@ -307,6 +308,9 @@ export default function StackPage({ params }: { params: { id: string } }) {
                 Validar con cuestionario →
               </Link>
             </div>
+
+            {/* Affiliate cards */}
+            <AffiliateCards hosting={stack.technologies.hosting} variant="sidebar" />
 
             {/* Compare */}
             <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6">
