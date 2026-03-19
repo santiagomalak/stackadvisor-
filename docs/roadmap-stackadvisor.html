@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StackAdvisor — Roadmap & Estrategia de Producto</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 40px;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #1e3a5f 0%, #1d4ed8 100%);
+      color: white;
+      border-radius: 16px;
+      padding: 40px 48px;
+      margin-bottom: 40px;
+    }
+
+    .header .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #7dd3fc;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    .header h1 {
+      font-size: 32px;
+      font-weight: 900;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .header h1 span { color: #38bdf8; }
+
+    .header p {
+      font-size: 15px;
+      opacity: 0.75;
+      max-width: 520px;
+    }
+
+    .header .meta {
+      margin-top: 20px;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .header .meta-item {
+      font-size: 13px;
+      opacity: 0.65;
+    }
+
+    .header .meta-item strong {
+      opacity: 1;
+      color: white;
+      display: block;
+      font-size: 15px;
+    }
+
+    /* Section */
+    .section {
+      margin-bottom: 36px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #1d4ed8;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e2e8f0;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #64748b;
+      margin-bottom: 20px;
+    }
+
+    /* Cards */
+    .card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+
+    .card p {
+      font-size: 13px;
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    /* Fix cards (done) */
+    .card.done { border-left: 3px solid #22c55e; }
+    .card.done .tag { background: #dcfce7; color: #15803d; }
+
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    thead tr {
+      background: #f1f5f9;
+    }
+
+    th {
+      text-align: left;
+      padding: 10px 14px;
+      font-weight: 600;
+      color: #475569;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    td {
+      padding: 11px 14px;
+      border-bottom: 1px solid #f1f5f9;
+      vertical-align: top;
+    }
+
+    td:first-child { font-weight: 600; color: #0f172a; width: 45%; }
+    td:last-child  { color: #64748b; }
+
+    tr:last-child td { border-bottom: none; }
+
+    tbody tr:hover { background: #f8fafc; }
+
+    /* Levels */
+    .level {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .level-header {
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .level-1 .level-header { background: #eff6ff; border-bottom: 1px solid #bfdbfe; }
+    .level-2 .level-header { background: #f0fdf4; border-bottom: 1px solid #bbf7d0; }
+    .level-3 .level-header { background: #fff7ed; border-bottom: 1px solid #fed7aa; }
+    .level-4 .level-header { background: #fdf4ff; border-bottom: 1px solid #e9d5ff; }
+
+    .level-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
+    .level-1 .level-badge { background: #1d4ed8; color: white; }
+    .level-2 .level-badge { background: #16a34a; color: white; }
+    .level-3 .level-badge { background: #ea580c; color: white; }
+    .level-4 .level-badge { background: #7c3aed; color: white; }
+
+    .level-header h3 { font-size: 15px; font-weight: 700; color: #0f172a; }
+    .level-header .timeframe { font-size: 12px; color: #64748b; margin-left: auto; }
+
+    .level table { margin: 0; }
+    .level td, .level th { padding: 10px 20px; }
+    .level thead tr { background: transparent; }
+    .level th { color: #94a3b8; font-size: 11px; }
+
+    /* North star */
+    .north-star {
+      background: linear-gradient(135deg, #0f172a, #1e3a5f);
+      color: white;
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-top: 8px;
+    }
+
+    .north-star h3 { font-size: 17px; font-weight: 800; margin-bottom: 10px; }
+    .north-star p { font-size: 14px; opacity: 0.8; line-height: 1.7; }
+
+    /* Tag */
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-left: 6px;
+      vertical-align: middle;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .tag-blue   { background: #dbeafe; color: #1d4ed8; }
+    .tag-green  { background: #dcfce7; color: #15803d; }
+    .tag-orange { background: #ffedd5; color: #c2410c; }
+    .tag-purple { background: #f3e8ff; color: #7c3aed; }
+
+    /* Revenue model */
+    .revenue-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .revenue-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px 18px;
+    }
+
+    .revenue-card .amount {
+      font-size: 22px;
+      font-weight: 900;
+      color: #1d4ed8;
+      margin-bottom: 2px;
+    }
+
+    .revenue-card .label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+
+    .revenue-card p { font-size: 12px; color: #64748b; }
+
+    /* Divider */
+    hr { border: none; border-top: 1px solid #e2e8f0; margin: 32px 0; }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    /* Print */
+    @media print {
+      body { background: white; }
+      .page { padding: 24px; }
+      .header { border-radius: 8px; }
+      .level, .card, .north-star { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="badge">Documento interno · Confidencial</div>
+    <h1>Stack<span>Advisor</span> — Roadmap & Estrategia</h1>
+    <p>Estado actual del producto, mejoras implementadas y norte estratégico para convertirlo en un producto de elite.</p>
+    <div class="meta">
+      <div class="meta-item">
+        <strong>Marzo 2026</strong>
+        Fecha del documento
+      </div>
+      <div class="meta-item">
+        <strong>stackadvisor-nu.vercel.app</strong>
+        Producción
+      </div>
+      <div class="meta-item">
+        <strong>Santiago Malak</strong>
+        Fundador
+      </div>
+    </div>
+  </div>
+
+  <!-- Estado actual -->
+  <div class="section">
+    <div class="section-title">Estado actual del producto</div>
+    <h2>¿Qué tiene StackAdvisor hoy?</h2>
+    <p class="subtitle">Funcionalidades live en producción al día de hoy.</p>
+
+    <div class="card done">
+      <h3>🎯 Recomendador de stacks gratuito <span class="tag tag-green">Live</span></h3>
+      <p>13 preguntas → recomendación personalizada entre 35+ stacks evaluados, con roadmap de 12 semanas, estimador de costos, prompts básicos de IA y comparativa entre stacks.</p>
+    </div>
+
+    <div class="card done">
+      <h3>💳 Blueprint premium — $30 LATAM / $40 Global <span class="tag tag-green">Live</span></h3>
+      <p>Producto pago via Lemon Squeezy con detección geográfica automática. Genera un Blueprint de 10 secciones con IA (Gemini), guardado en localStorage del usuario.</p>
+    </div>
+
+    <div class="card done">
+      <h3>💬 Chat de IA contextualizado — 50 mensajes incluidos <span class="tag tag-green">Live</span></h3>
+      <p>Chat que conoce el Blueprint y las respuestas del usuario. 50 mensajes incluidos por compra. Al agotarse, se ofrece coordinación con Santiago via WhatsApp.</p>
+    </div>
+
+    <div class="card done">
+      <h3>👤 Sesión 1:1 de 30 minutos incluida <span class="tag tag-green">Live</span></h3>
+      <p>Una sesión humana por compra. El usuario la coordina via WhatsApp. Limitada y clara: no es soporte continuo.</p>
+    </div>
+
+    <div class="card done">
+      <h3>🌎 Precios diferenciados por región <span class="tag tag-green">Live</span></h3>
+      <p>Detección automática via Vercel (x-vercel-ip-country). Toggle manual LATAM/Global. URLs de checkout obtenidas directamente de la API de Lemon Squeezy para evitar errores de store slug.</p>
+    </div>
+
+    <div class="card done">
+      <h3>💾 Acceso al Blueprint guardado en dispositivo <span class="tag tag-green">Live</span></h3>
+      <p>localStorage persiste el Blueprint. El usuario puede cerrar la pestaña y volver cuando quiera. Incluye botón de descarga como .txt y exportación a PDF via impresión del navegador.</p>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Modelo de negocio -->
+  <div class="section">
+    <div class="section-title">Modelo de negocio</div>
+    <h2>Revenue actual y proyectado</h2>
+    <p class="subtitle">Números conservadores basados en el ticket promedio actual.</p>
+
+    <div class="revenue-grid">
+      <div class="revenue-card">
+        <div class="amount">$35</div>
+        <div class="label">Ticket promedio</div>
+        <p>$30 LATAM · $40 Global. Pago único sin recurrencia hoy.</p>
+      </div>
+      <div class="revenue-card">
+        <div class="amount">$350</div>
+        <div class="label">10 ventas / mes</div>
+        <p>Objetivo inicial alcanzable con poco tráfico orgánico.</p>
+      </div>
+      <div class="revenue-card">
+        <div class="amount">~$0.02</div>
+        <div class="label">Costo por Blueprint generado</div>
+        <p>Gemini 1.5 Flash es extremadamente barato. 50 mensajes de chat cuestan menos de $0.05 adicionales.</p>
+      </div>
+      <div class="revenue-card">
+        <div class="amount">~98%</div>
+        <div class="label">Margen bruto</div>
+        <p>Costo variable casi nulo. El único costo es el tiempo de la sesión 1:1 (30 min / venta).</p>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Roadmap -->
+  <div class="section">
+    <div class="section-title">Roadmap estratégico</div>
+    <h2>Plan para hacer esto de elite</h2>
+    <p class="subtitle">4 niveles de madurez del producto, organizados por impacto y esfuerzo.</p>
+
+    <!-- Nivel 1 -->
+    <div class="level level-1">
+      <div class="level-header">
+        <span class="level-badge">Nivel 1</span>
+        <h3>Quick wins — Sin costo extra</h3>
+        <span class="timeframe">📅 Próximas 2 semanas</span>
+      </div>
+      <table>
+        <thead><tr><th>Qué</th><th>Por qué importa</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Testimonios reales de compradores</td>
+            <td>La prueba social es lo que más convierte en productos digitales. Un solo testimonio auténtico vale más que todo el copy.</td>
+          </tr>
+          <tr>
+            <td>Ejemplo de Blueprint anonimizado</td>
+            <td>El usuario no sabe qué va a recibir hasta que lo compra. Mostrar uno real elimina la duda más grande.</td>
+          </tr>
+          <tr>
+            <td>Contador "X blueprints generados"</td>
+            <td>FOMO + prueba social pasiva. Actualizable manualmente al principio.</td>
+          </tr>
+          <tr>
+            <td>FAQ ampliada</td>
+            <td>"¿Puedo actualizar mi Blueprint?", "¿Qué pasa si cambio de stack?", "¿Es solo para devs?" — responder estas preguntas reduce la fricción de compra.</td>
+          </tr>
+          <tr>
+            <td>SEO básico por página</td>
+            <td>Meta titles y descriptions específicos. Tráfico orgánico gratis de Google a largo plazo.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Nivel 2 -->
+    <div class="level level-2">
+      <div class="level-header">
+        <span class="level-badge">Nivel 2</span>
+        <h3>Diferenciación real — Inversión baja</h3>
+        <span class="timeframe">📅 Próximo mes</span>
+      </div>
+      <table>
+        <thead><tr><th>Qué</th><th>Por qué importa</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Email del Blueprint al terminar</td>
+            <td>Acceso real desde cualquier dispositivo + construís tu lista de emails. Con Resend es casi gratis.</td>
+          </tr>
+          <tr>
+            <td>Blueprint Lite a $15 — solo arquitectura + prompts</td>
+            <td>Punto de entrada más accesible. Los convierte en clientes y luego upsell al Blueprint completo.</td>
+          </tr>
+          <tr>
+            <td>Página de "Cómo funciona" con video o GIF</td>
+            <td>Ver el producto en acción antes de comprar aumenta la conversión drásticamente.</td>
+          </tr>
+          <tr>
+            <td>Sistema de referidos simple</td>
+            <td>"Compartí tu link y llevate $10 en crédito." Adquisición viral sin costo publicitario.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Nivel 3 -->
+    <div class="level level-3">
+      <div class="level-header">
+        <span class="level-badge">Nivel 3</span>
+        <h3>Producto maduro — Esfuerzo medio</h3>
+        <span class="timeframe">📅 Próximos 3 meses</span>
+      </div>
+      <table>
+        <thead><tr><th>Qué</th><th>Por qué importa</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Accounts / Login</td>
+            <td>El usuario guarda sus blueprints en la nube, no en el dispositivo. Permite retención, múltiples dispositivos y cobrar renovaciones anuales.</td>
+          </tr>
+          <tr>
+            <td>Blueprint para equipos — $80</td>
+            <td>Múltiples devs con acceso compartido al mismo Blueprint. Ticket 2x sin trabajo adicional de generación.</td>
+          </tr>
+          <tr>
+            <td>Update de Blueprint</td>
+            <td>"Tu proyecto cambió de dirección, regenerá la sección de stack y costos." Segunda venta natural a usuarios existentes.</td>
+          </tr>
+          <tr>
+            <td>Paquetes de sesiones adicionales</td>
+            <td>3 sesiones de 30 min a $60. Revenue recurrente de usuarios que ya compraron y confían.</td>
+          </tr>
+          <tr>
+            <td>Dashboard de progreso</td>
+            <td>El usuario marca qué semanas del plan completó. Engagement + sensación de avance = retención.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Nivel 4 -->
+    <div class="level level-4">
+      <div class="level-header">
+        <span class="level-badge">Nivel 4</span>
+        <h3>Producto de elite — Largo plazo</h3>
+        <span class="timeframe">📅 6 meses en adelante</span>
+      </div>
+      <table>
+        <thead><tr><th>Qué</th><th>Por qué importa</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Blog técnico con SEO</td>
+            <td>"Cómo estructurar una app SaaS con Next.js", "Cuándo usar Supabase vs Firebase". Miles de visitas del target exacto. Canal de adquisición más rentable a largo plazo.</td>
+          </tr>
+          <tr>
+            <td>Comunidad privada (Discord)</td>
+            <td>Solo para compradores de Blueprint. Retención, upsell de sesiones, comunidad que se ayuda sola. Santiago puede estar presente sin escalar su tiempo.</td>
+          </tr>
+          <tr>
+            <td>API pública del recomendador</td>
+            <td>Otros productos o bootcamps pueden embeber el recomendador. B2B, ingresos pasivos, autoridad de marca.</td>
+          </tr>
+          <tr>
+            <td>Modelo Claude o GPT-4o para Blueprint</td>
+            <td>Blueprints de mayor calidad = menos correcciones en la sesión 1:1 = más escalable.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Norte estratégico -->
+  <div class="section">
+    <div class="section-title">Norte estratégico</div>
+    <h2>La visión</h2>
+
+    <div class="north-star">
+      <h3>🎯 StackAdvisor debe ser la primera cosa que hace un dev indie cuando tiene una idea.</h3>
+      <p>
+        Eso se logra con tres palancas: siendo la <strong>referencia de contenido</strong> para decisiones técnicas de startups (blog/SEO),
+        teniendo el <strong>mejor producto</strong> del mercado para planificar el desarrollo de una app (Blueprint),
+        y construyendo <strong>comunidad</strong> alrededor de ese proceso.
+        <br /><br />
+        El moat no es la tecnología — cualquiera puede hacer un generador de blueprints con IA.
+        El moat es la <strong>confianza, el nombre y la red</strong> que se construye con cada comprador satisfecho.
+        Una venta bien hecha hoy vale más que diez features nuevas.
+      </p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>StackAdvisor · Documento interno · Marzo 2026</p>
+    <p style="margin-top:4px">Para convertir a PDF: Ctrl+P → Guardar como PDF → Sin márgenes → Fondo gráfico activado</p>
+  </div>
+
+</div>
+</body>
+</html>

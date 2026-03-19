@@ -106,6 +106,70 @@ function ScoreBadge({ score }: { score: number }) {
   );
 }
 
+function EmailCapture({ stack, reasons, roadmap }: { stack: any; reasons: string[]; roadmap: any[] }) {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'done' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+    setStatus('loading');
+    try {
+      const res = await fetch('/api/email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, stack, reasons, roadmap }),
+      });
+      setStatus(res.ok ? 'done' : 'error');
+    } catch {
+      setStatus('error');
+    }
+  };
+
+  if (status === 'done') {
+    return (
+      <div className="bg-green-50 dark:bg-green-950/40 border border-green-200 dark:border-green-800 rounded-2xl p-6 text-center">
+        <div className="text-3xl mb-2">📬</div>
+        <h3 className="font-bold text-green-800 dark:text-green-300 mb-1">¡Listo! Revisá tu bandeja</h3>
+        <p className="text-sm text-green-700 dark:text-green-400">Te enviamos tu recomendación completa con el roadmap a <strong>{email}</strong></p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="bg-gradient-to-br from-primary/5 to-blue-600/5 border-2 border-primary/20 dark:border-primary/30 rounded-2xl p-6">
+      <div className="flex items-start gap-4">
+        <div className="text-3xl flex-shrink-0">📧</div>
+        <div className="flex-1">
+          <h3 className="font-bold text-gray-900 dark:text-white mb-1">Recibí tu recomendación por email</h3>
+          <p className="text-sm text-gray-500 dark:text-slate-400 mb-4">
+            Te mandamos tu stack recomendado, por qué te encaja y tu roadmap completo — para que lo tengas siempre a mano.
+          </p>
+          <form onSubmit={handleSubmit} className="flex gap-2 flex-col sm:flex-row">
+            <input
+              type="email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              placeholder="tu@email.com"
+              required
+              className="flex-1 px-4 py-2.5 rounded-xl border-2 border-gray-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-primary transition-all text-sm"
+            />
+            <button
+              type="submit"
+              disabled={status === 'loading'}
+              className="bg-primary text-white px-5 py-2.5 rounded-xl text-sm font-medium hover:bg-blue-600 disabled:opacity-50 transition-colors whitespace-nowrap"
+            >
+              {status === 'loading' ? 'Enviando...' : 'Enviar gratis →'}
+            </button>
+          </form>
+          {status === 'error' && <p className="text-xs text-red-500 mt-2">Hubo un error. Intentá de nuevo.</p>}
+          <p className="text-xs text-gray-400 dark:text-slate-600 mt-2">Sin spam. Solo tu resultado.</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function ResultsContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -482,6 +546,15 @@ Obtén tu recomendación gratis en: stackadvisor-nu.vercel.app`;
             <Roadmap roadmap={primary.roadmap} />
           </div>
         )}
+
+        {/* Email capture */}
+        <div className="mb-8">
+          <EmailCapture
+            stack={primary.stack}
+            reasons={primary.matchReasons || []}
+            roadmap={primary.roadmap || []}
+          />
+        </div>
 
         {/* Affiliate cards */}
         <AffiliateCards hosting={primary.stack.technologies.hosting} variant="inline" />
