@@ -86,12 +86,18 @@ export default function BlueprintPage() {
             )}
             {!isLatam && <div className="mb-4" />}
 
-            <a
-              href={checkoutUrl}
-              className="lemonsqueezy-button block w-full bg-accent hover:bg-green-500 text-white font-bold py-4 px-8 rounded-xl text-lg transition-all transform hover:scale-105 shadow-xl text-center"
-            >
-              Obtener mi Blueprint →
-            </a>
+            {checkoutUrl ? (
+              <a
+                href={checkoutUrl}
+                className="lemonsqueezy-button block w-full bg-accent hover:bg-green-500 text-white font-bold py-4 px-8 rounded-xl text-lg transition-all transform hover:scale-105 shadow-xl text-center"
+              >
+                Obtener mi Blueprint →
+              </a>
+            ) : (
+              <button disabled className="block w-full bg-accent/50 text-white font-bold py-4 px-8 rounded-xl text-lg cursor-wait text-center">
+                Cargando…
+              </button>
+            )}
             <p className="text-white/50 text-xs mt-3">🔒 Pago seguro · Garantía 7 días</p>
           </div>
 
@@ -196,12 +202,18 @@ export default function BlueprintPage() {
           <div className="text-5xl mb-4">🎯</div>
           <h2 className="text-3xl font-bold mb-3">¿Listo para arrancar?</h2>
           <p className="opacity-85 mb-8">En menos de 10 minutos tenés tu Blueprint listo para usar.</p>
-          <a
-            href={checkoutUrl}
-            className="lemonsqueezy-button inline-block bg-white text-primary font-bold py-4 px-10 rounded-xl text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl"
-          >
-            Obtener mi Blueprint por ${price} →
-          </a>
+          {checkoutUrl ? (
+            <a
+              href={checkoutUrl}
+              className="lemonsqueezy-button inline-block bg-white text-primary font-bold py-4 px-10 rounded-xl text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl"
+            >
+              Obtener mi Blueprint por ${price} →
+            </a>
+          ) : (
+            <button disabled className="inline-block bg-white/50 text-primary font-bold py-4 px-10 rounded-xl text-lg cursor-wait">
+              Cargando…
+            </button>
+          )}
           <p className="text-white/50 text-xs mt-3">🔒 Pago seguro · Garantía 7 días</p>
         </div>
       </section>

@@ -19,25 +19,23 @@ async function getLemonCheckoutUrls(): Promise<{ global: string; latam: string }
 
   const auth = { Authorization: `Bearer ${process.env.LEMONSQUEEZY_API_KEY}` };
 
-  const [resG, resL] = await Promise.all([
-    fetch(`https://api.lemonsqueezy.com/v1/variants/${VARIANT_GLOBAL}`, { headers: auth }),
-    fetch(`https://api.lemonsqueezy.com/v1/variants/${VARIANT_LATAM}`,  { headers: auth }),
-  ]);
+  // Get store slug — the variant env vars are UUIDs (used in buy URLs, not integer API IDs)
+  const storeRes  = await fetch('https://api.lemonsqueezy.com/v1/stores', { headers: auth });
+  const storeData = await storeRes.json();
+  const slug      = storeData?.data?.[0]?.attributes?.slug as string | undefined;
 
-  const [dataG, dataL] = await Promise.all([resG.json(), resL.json()]);
-
-  const buyG = dataG?.data?.attributes?.buy_now_url as string | undefined;
-  const buyL = dataL?.data?.attributes?.buy_now_url as string | undefined;
-
-  const result = {
-    global: buyG ? `${buyG}?embed=1&media=0&logo=0` : '',
-    latam:  buyL ? `${buyL}?embed=1&media=0&logo=0` : '',
-  };
-
-  if (result.global && result.latam) {
-    urlCache = { ...result, at: Date.now() };
+  if (!slug) {
+    return { global: '', latam: '' };
   }
 
+  // Construct buy URLs directly from store slug + variant UUID
+  const base   = (uuid: string) => `https://${slug}.lemonsqueezy.com/buy/${uuid}?embed=1&media=0&logo=0`;
+  const result = {
+    global: base(VARIANT_GLOBAL),
+    latam:  base(VARIANT_LATAM),
+  };
+
+  urlCache = { ...result, at: Date.now() };
   return result;
 }
 
