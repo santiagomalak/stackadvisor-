@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
       }, { status: 429 });
     }
 
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
     const systemContext = `Sos un experto en desarrollo de software y arquitectura de sistemas, especializado en ayudar a devs independientes y startups a implementar sus proyectos.
 

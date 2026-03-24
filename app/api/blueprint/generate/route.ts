@@ -67,7 +67,7 @@ Respondé en Markdown con estas secciones exactas:
 ## 9. Riesgos y Cómo Mitigarlos (top 5, con estrategia de mitigación)
 ## 10. Primeros 3 Pasos Para HOY (con comandos o links exactos)`;
 
-    const model  = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model  = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
     const result = await model.generateContentStream(prompt);
 
     const encoder = new TextEncoder();

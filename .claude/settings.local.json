@@ -27,7 +27,9 @@
       "WebFetch(domain:www.stackadvisor.ai)",
       "Bash(sed -n '85,100p' C:/StackAdvisor/app/blueprint/page.tsx)",
       "Bash(sed -n '195,210p' C:/StackAdvisor/app/blueprint/page.tsx)",
-      "Bash(vercel --prod)"
+      "Bash(vercel --prod)",
+      "Bash(vercel logs:*)",
+      "Bash(vercel inspect:*)"
     ]
   }
 }
