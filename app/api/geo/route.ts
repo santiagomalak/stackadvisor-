@@ -42,7 +42,7 @@ async function getLemonCheckoutUrls(): Promise<{ global: string; latam: string }
     return { global: '', latam: '' };
   }
 
-  const base   = (uuid: string) => `https://${slug}.lemonsqueezy.com/buy/${uuid}?embed=1&media=0&logo=0`;
+  const base   = (uuid: string) => `https://${slug}.lemonsqueezy.com/checkout/buy/${uuid}?embed=1&media=0&logo=0`;
   const result = {
     global: base(VARIANT_GLOBAL),
     latam:  base(VARIANT_LATAM),
