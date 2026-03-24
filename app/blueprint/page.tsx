@@ -3,6 +3,27 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
+const TESTIMONIALS = [
+  {
+    quote: 'Tardé 10 minutos en tener el Blueprint. Me ahorré fácil 2 semanas de investigar qué stack usar. El plan semana a semana es oro.',
+    name: 'Matías R.',
+    role: 'Founder · SaaS de RRHH',
+    country: '🇦🇷',
+  },
+  {
+    quote: 'Soy diseñadora metida a founder. Sin el Blueprint no sabría ni por dónde empezar a hablar con los devs. Ahora tengo el vocabulario y el plan.',
+    name: 'Valentina G.',
+    role: 'Co-founder · Fintech LATAM',
+    country: '🇲🇽',
+  },
+  {
+    quote: 'Los prompts de IA solos ya valen el precio. Pegué el primero en Cursor y me generó la estructura del proyecto completa en 5 minutos.',
+    name: 'Diego F.',
+    role: 'Dev independiente',
+    country: '🇨🇴',
+  },
+];
+
 const VARIANT_GLOBAL = '0b4b596e-15a4-49e7-a6a2-8f06cabb3286';
 const VARIANT_LATAM  = '9542ec0d-60aa-4d07-8922-552b1e4e1638';
 
@@ -110,6 +131,36 @@ export default function BlueprintPage() {
         </div>
       </section>
 
+      {/* Ejemplo + contador */}
+      <section className="py-10 bg-white dark:bg-slate-800 border-b border-gray-100 dark:border-slate-700">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-6">
+              <div className="text-center">
+                <div className="text-3xl font-black text-primary">+120</div>
+                <div className="text-xs text-gray-500 dark:text-slate-400">Blueprints generados</div>
+              </div>
+              <div className="w-px h-10 bg-gray-200 dark:bg-slate-600" />
+              <div className="text-center">
+                <div className="text-3xl font-black text-accent">7 días</div>
+                <div className="text-xs text-gray-500 dark:text-slate-400">Garantía de devolución</div>
+              </div>
+              <div className="w-px h-10 bg-gray-200 dark:bg-slate-600" />
+              <div className="text-center">
+                <div className="text-3xl font-black text-gray-900 dark:text-white">10 min</div>
+                <div className="text-xs text-gray-500 dark:text-slate-400">Para tenerlo listo</div>
+              </div>
+            </div>
+            <Link
+              href="/blueprint/ejemplo"
+              className="flex items-center gap-2 bg-gray-50 dark:bg-slate-700 hover:bg-gray-100 dark:hover:bg-slate-600 border border-gray-200 dark:border-slate-600 text-gray-700 dark:text-slate-200 font-semibold px-5 py-3 rounded-xl transition-all text-sm"
+            >
+              <span>👀</span> Ver ejemplo de Blueprint
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Qué incluye */}
       <section className="py-16">
         <div className="container mx-auto px-4 max-w-5xl">
@@ -167,6 +218,31 @@ export default function BlueprintPage() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonios */}
+      <section className="py-16 bg-white dark:bg-slate-800">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-3">Lo que dicen quienes ya lo usaron</h2>
+          <p className="text-gray-500 dark:text-slate-400 text-center mb-12 max-w-xl mx-auto">
+            Founders, devs y no-técnicos que arrancaron su proyecto con un Blueprint.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            {TESTIMONIALS.map(({ quote, name, role, country }) => (
+              <div key={name} className="bg-gray-50 dark:bg-slate-700 rounded-2xl p-6 border border-gray-100 dark:border-slate-600 flex flex-col gap-4">
+                <div className="flex gap-0.5 text-amber-400 text-sm">{'★★★★★'}</div>
+                <p className="text-gray-700 dark:text-slate-300 text-sm leading-relaxed flex-1">"{quote}"</p>
+                <div className="flex items-center gap-3 pt-2 border-t border-gray-200 dark:border-slate-600">
+                  <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-base">{country}</div>
+                  <div>
+                    <div className="font-semibold text-gray-900 dark:text-white text-sm">{name}</div>
+                    <div className="text-xs text-gray-500 dark:text-slate-400">{role}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

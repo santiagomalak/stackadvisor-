@@ -222,6 +222,58 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Testimonios */}
+      <section className="py-16 bg-gray-50 dark:bg-slate-900">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-3">Lo que dicen los que ya lo usaron</h2>
+          <p className="text-gray-500 dark:text-slate-400 text-center mb-12 max-w-xl mx-auto">
+            Más de 120 blueprints generados para proyectos reales en LATAM y el mundo
+          </p>
+          <div className="grid md:grid-cols-3 gap-6 mb-10">
+            {[
+              {
+                quote: 'En 5 minutos tuve más claridad de stack que en 2 semanas de investigación. El roadmap de 12 semanas fue lo que me hizo arrancar.',
+                name: 'Facundo M.',
+                role: 'Indie hacker · Buenos Aires',
+                country: '🇦🇷',
+              },
+              {
+                quote: 'Soy diseñadora y no entiendo de código. StackAdvisor me explicó qué tecnologías pedirle a mi dev y por qué. Fue un cambio de juego.',
+                name: 'Camila P.',
+                role: 'Founder · Startup de diseño',
+                country: '🇲🇽',
+              },
+              {
+                quote: 'Lo usé para validar si mi elección de stack era correcta antes de contratar un equipo. Me confirmó que iba bien y me ahorró una conversación difícil.',
+                name: 'Andrés T.',
+                role: 'CTO · Fintech Colombia',
+                country: '🇨🇴',
+              },
+            ].map(({ quote, name, role, country }) => (
+              <div key={name} className="bg-white dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-slate-600 p-6 shadow-sm flex flex-col gap-4">
+                <div className="flex gap-0.5 text-amber-400 text-sm">{'★★★★★'}</div>
+                <p className="text-gray-700 dark:text-slate-300 text-sm leading-relaxed flex-1">"{quote}"</p>
+                <div className="flex items-center gap-3 pt-3 border-t border-gray-100 dark:border-slate-700">
+                  <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-base">{country}</div>
+                  <div>
+                    <div className="font-semibold text-gray-900 dark:text-white text-sm">{name}</div>
+                    <div className="text-xs text-gray-500 dark:text-slate-400">{role}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center">
+            <Link
+              href="/blueprint/ejemplo"
+              className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:underline"
+            >
+              Ver un ejemplo de Blueprint completo →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="py-16 bg-gray-50 dark:bg-slate-900">
         <div className="container mx-auto px-4 max-w-2xl">

@@ -54,6 +54,7 @@ export default function Footer() {
                 { href: '/results', label: 'Ver resultados' },
                 { href: '/compare', label: 'Comparador' },
                 { href: '/blueprint', label: '🏗️ Blueprint premium' },
+                { href: '/blueprint/ejemplo', label: '👀 Ver ejemplo' },
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link
