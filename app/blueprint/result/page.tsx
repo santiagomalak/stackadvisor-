@@ -259,6 +259,18 @@ export default function BlueprintResultPage() {
             <button onClick={() => window.print()} className="bg-white/10 border border-white/20 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-white/20 transition-colors">
               📄 PDF
             </button>
+            <button
+              onClick={() => {
+                if (confirm('¿Seguro? Esto borrará el Blueprint guardado y podrás generar uno nuevo.')) {
+                  localStorage.removeItem(LS_KEY);
+                  sessionStorage.removeItem('blueprintAnswers');
+                  router.push('/blueprint/extended');
+                }
+              }}
+              className="bg-white/5 border border-white/10 text-white/60 hover:text-white hover:bg-white/10 px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+            >
+              🔄 Nuevo Blueprint
+            </button>
           </div>
         </div>
 
