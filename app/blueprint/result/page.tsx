@@ -100,6 +100,7 @@ export default function BlueprintResultPage() {
   const [activeTab, setActiveTab] = useState<'blueprint' | 'chat'>('blueprint');
   const [savedAt, setSavedAt] = useState('');
   const [copyDone, setCopyDone] = useState(false);
+  const [streaming, setStreaming] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -128,32 +129,53 @@ export default function BlueprintResultPage() {
     const parsedAnswers = JSON.parse(stored);
     setAnswers(parsedAnswers);
 
-    fetch('/api/blueprint/generate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ answers: parsedAnswers }),
-    })
-      .then(r => r.json())
-      .then(data => {
-        if (data.blueprint) {
-          setBlueprint(data.blueprint);
-          const now = new Date().toLocaleDateString('es-AR', { day: 'numeric', month: 'long', year: 'numeric' });
-          setSavedAt(now);
-          // Save to localStorage for permanent access
-          const toSave: SavedBlueprint = {
-            blueprint: data.blueprint,
-            answers: parsedAnswers,
-            savedAt: now,
-            projectName: parsedAnswers.project_name || 'tu proyecto',
-          };
-          try { localStorage.setItem(LS_KEY, JSON.stringify(toSave)); } catch { /* storage full */ }
-          setMessages([{ role: 'ai', content: `¡Listo! Tu Blueprint está generado y guardado 🎉 Leelo con calma. Tenés **50 mensajes de IA incluidos** para resolver dudas sobre tu proyecto.` }]);
-        } else {
+    (async () => {
+      try {
+        const res = await fetch('/api/blueprint/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ answers: parsedAnswers }),
+        });
+
+        if (!res.ok || !res.body) {
           setError('Error generando el Blueprint. Intentá de nuevo.');
+          setGenerating(false);
+          return;
         }
+
+        // Stream the response — show blueprint as it writes
+        const reader  = res.body.getReader();
+        const decoder = new TextDecoder();
+        let full = '';
+
         setGenerating(false);
-      })
-      .catch(() => { setError('Error de conexión.'); setGenerating(false); });
+        setStreaming(true);
+
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          full += decoder.decode(value, { stream: true });
+          setBlueprint(full);
+        }
+
+        setStreaming(false);
+
+        // Save to localStorage once complete
+        const now = new Date().toLocaleDateString('es-AR', { day: 'numeric', month: 'long', year: 'numeric' });
+        setSavedAt(now);
+        const toSave: SavedBlueprint = {
+          blueprint: full,
+          answers: parsedAnswers,
+          savedAt: now,
+          projectName: parsedAnswers.project_name || 'tu proyecto',
+        };
+        try { localStorage.setItem(LS_KEY, JSON.stringify(toSave)); } catch { /* storage full */ }
+        setMessages([{ role: 'ai', content: `¡Listo! Tu Blueprint está generado y guardado 🎉 Leelo con calma. Tenés **50 mensajes de IA incluidos** para resolver dudas sobre tu proyecto.` }]);
+      } catch {
+        setError('Error de conexión. Intentá de nuevo.');
+        setGenerating(false);
+      }
+    })();
   }, [router]);
 
   useEffect(() => { chatEndRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [messages]);
@@ -270,7 +292,19 @@ export default function BlueprintResultPage() {
         {/* Blueprint tab */}
         {activeTab === 'blueprint' && (
           <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-8">
-            <BlueprintMarkdown content={blueprint} />
+            {streaming && !blueprint && (
+              <div className="flex items-center gap-3 text-gray-500 dark:text-slate-400 text-sm mb-6">
+                <div className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin flex-shrink-0" />
+                La IA está escribiendo tu Blueprint...
+              </div>
+            )}
+            {blueprint && <BlueprintMarkdown content={blueprint} />}
+            {streaming && blueprint && (
+              <div className="flex items-center gap-2 text-gray-400 dark:text-slate-500 text-xs mt-4">
+                <div className="w-3 h-3 border-2 border-primary border-t-transparent rounded-full animate-spin flex-shrink-0" />
+                Generando...
+              </div>
+            )}
           </div>
         )}
 
