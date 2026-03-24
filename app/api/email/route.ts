@@ -143,7 +143,6 @@ function buildEmailHtml(data: {
 </body>
 </html>`;
 }
-}
 
 export async function POST(request: NextRequest) {
   try {
