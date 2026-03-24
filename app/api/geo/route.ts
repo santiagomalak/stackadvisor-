@@ -17,18 +17,31 @@ async function getLemonCheckoutUrls(): Promise<{ global: string; latam: string }
     return { global: urlCache.global, latam: urlCache.latam };
   }
 
+  // Option 1: direct URLs stored in env (fastest, no API call)
+  const directGlobal = process.env.LEMONSQUEEZY_URL_GLOBAL;
+  const directLatam  = process.env.LEMONSQUEEZY_URL_LATAM;
+
+  if (directGlobal && directLatam) {
+    const result = {
+      global: `${directGlobal}?embed=1&media=0&logo=0`,
+      latam:  `${directLatam}?embed=1&media=0&logo=0`,
+    };
+    urlCache = { ...result, at: Date.now() };
+    return result;
+  }
+
+  // Option 2: fetch store slug from Lemon Squeezy API and construct URL from variant UUID
   const auth = { Authorization: `Bearer ${process.env.LEMONSQUEEZY_API_KEY}` };
 
-  // Get store slug — the variant env vars are UUIDs (used in buy URLs, not integer API IDs)
   const storeRes  = await fetch('https://api.lemonsqueezy.com/v1/stores', { headers: auth });
   const storeData = await storeRes.json();
   const slug      = storeData?.data?.[0]?.attributes?.slug as string | undefined;
 
   if (!slug) {
+    console.error('[geo] Could not get Lemon Squeezy store slug', storeData);
     return { global: '', latam: '' };
   }
 
-  // Construct buy URLs directly from store slug + variant UUID
   const base   = (uuid: string) => `https://${slug}.lemonsqueezy.com/buy/${uuid}?embed=1&media=0&logo=0`;
   const result = {
     global: base(VARIANT_GLOBAL),
