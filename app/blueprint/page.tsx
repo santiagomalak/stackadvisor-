@@ -247,6 +247,39 @@ export default function BlueprintPage() {
         </div>
       </section>
 
+      {/* El creador */}
+      <section className="py-16 bg-gray-50 dark:bg-slate-900">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-slate-600 p-8 flex flex-col sm:flex-row gap-8 items-center shadow-sm">
+            <div className="flex-shrink-0 w-24 h-24 rounded-2xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center text-white text-4xl font-black shadow-lg">
+              S
+            </div>
+            <div>
+              <div className="text-xs font-bold text-primary uppercase tracking-wider mb-2">Quién está detrás</div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Santiago Aragón — Dev y founder</h3>
+              <p className="text-gray-600 dark:text-slate-400 text-sm leading-relaxed mb-4">
+                Construí StackAdvisor porque yo mismo perdí semanas eligiendo el stack correcto para mis proyectos.
+                Cada Blueprint que generás lo reviso personalmente en la sesión 1:1 — no es solo un documento generado por IA.
+                Aporto el contexto humano que ningún modelo de lenguaje puede darte.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://wa.me/5493834553249"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-accent/10 text-accent font-semibold text-sm px-4 py-2 rounded-lg hover:bg-accent/20 transition-colors"
+                >
+                  <span>💬</span> WhatsApp directo
+                </a>
+                <span className="inline-flex items-center gap-2 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-slate-300 text-sm px-4 py-2 rounded-lg">
+                  <span>⚡</span> Responde en menos de 4hs
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="py-16">
         <div className="container mx-auto px-4 max-w-2xl">
