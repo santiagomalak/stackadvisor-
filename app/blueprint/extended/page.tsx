@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 
 const QUESTIONS = [
   // Bloque 1 — Tu proyecto
+  { id: 'user_email',       section: 'Tu proyecto',       q: '¿Cuál es tu email? Te enviamos el Blueprint ahí para que lo tengas siempre.', type: 'email',  placeholder: 'hola@ejemplo.com' },
   { id: 'project_name',     section: 'Tu proyecto',       q: '¿Cómo se llama tu proyecto o idea?',                                          type: 'text',   placeholder: 'Ej: AppMiNegocio, PlatformX...' },
   { id: 'project_desc',     section: 'Tu proyecto',       q: 'Describí tu proyecto en 2-3 oraciones. ¿Qué hace y para quién?',              type: 'textarea', placeholder: 'Ej: Una app para que dueños de gimnasios gestionen sus turnos y pagos...' },
   { id: 'main_problem',     section: 'Tu proyecto',       q: '¿Qué problema específico resuelve tu app?',                                   type: 'textarea', placeholder: 'Ej: Los gimnasios pierden clientes porque no tienen sistema de reservas online...' },
@@ -142,9 +143,9 @@ export default function ExtendedQuestionnairePage() {
                 </div>
               )}
 
-              {q.type === 'text' && (
+              {(q.type === 'text' || q.type === 'email') && (
                 <input
-                  type="text"
+                  type={q.type}
                   value={answers[q.id] || ''}
                   onChange={e => handleAnswer(q.id, e.target.value)}
                   placeholder={q.placeholder}

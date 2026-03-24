@@ -101,6 +101,7 @@ export default function BlueprintResultPage() {
   const [savedAt, setSavedAt] = useState('');
   const [copyDone, setCopyDone] = useState(false);
   const [streaming, setStreaming] = useState(false);
+  const [emailSent, setEmailSent] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -171,6 +172,22 @@ export default function BlueprintResultPage() {
         };
         try { localStorage.setItem(LS_KEY, JSON.stringify(toSave)); } catch { /* storage full */ }
         setMessages([{ role: 'ai', content: `¡Listo! Tu Blueprint está generado y guardado 🎉 Leelo con calma. Tenés **50 mensajes de IA incluidos** para resolver dudas sobre tu proyecto.` }]);
+
+        // Auto-send Blueprint by email if user provided one
+        if (parsedAnswers.user_email) {
+          try {
+            await fetch('/api/blueprint/email', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                email: parsedAnswers.user_email,
+                projectName: parsedAnswers.project_name || 'tu proyecto',
+                blueprint: full,
+              }),
+            });
+            setEmailSent(true);
+          } catch { /* non-critical */ }
+        }
       } catch {
         setError('Error de conexión. Intentá de nuevo.');
         setGenerating(false);
@@ -276,9 +293,15 @@ export default function BlueprintResultPage() {
 
         {/* Saved notice */}
         {savedAt && (
-          <div className="mb-4 bg-green-50 dark:bg-green-950/40 border border-green-200 dark:border-green-800 rounded-xl px-4 py-2.5 flex items-center gap-2 text-sm text-green-800 dark:text-green-300">
+          <div className="mb-3 bg-green-50 dark:bg-green-950/40 border border-green-200 dark:border-green-800 rounded-xl px-4 py-2.5 flex items-center gap-2 text-sm text-green-800 dark:text-green-300">
             <span>✅</span>
-            <span>Blueprint guardado en este dispositivo desde el {savedAt} — podés cerrar esta pestaña y volver cuando quieras.</span>
+            <span>Blueprint guardado en este dispositivo desde el {savedAt}.</span>
+          </div>
+        )}
+        {emailSent && answers.user_email && (
+          <div className="mb-3 bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 rounded-xl px-4 py-2.5 flex items-center gap-2 text-sm text-blue-800 dark:text-blue-300">
+            <span>📧</span>
+            <span>Blueprint enviado a <strong>{answers.user_email}</strong> — revisá tu bandeja de entrada.</span>
           </div>
         )}
 
