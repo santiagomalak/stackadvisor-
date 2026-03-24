@@ -1,211 +1,190 @@
 # StackAdvisor
 
-**Transform Ideas into Reality**
+**Tu tech stack ideal en 5 minutos — con roadmap, estimación de costos y Blueprint personalizado.**
 
-StackAdvisor helps developers and founders get personalized tech stack recommendations in 5 minutes. From vague idea to clear production roadmap.
+Plataforma de recomendación de tecnología para founders y devs latinoamericanos. Cuestionario inteligente de 13 preguntas → stack recomendado + plan de 12 semanas + upsell a Blueprint premium con IA.
 
-## Features
+🌐 **Producción:** [stackadvisor-nu.vercel.app](https://stackadvisor-nu.vercel.app)
 
-- **13-Question Smart Questionnaire**: Understand your project needs, timeline, team, and priorities
-- **25+ Tech Stack Options**: Curated recommendations across all tiers (Popular, Specialized, Enterprise)
-- **AI-Powered Recommendation Engine**: Deterministic logic that maps your answers to the perfect stack
-- **12-Week Production Roadmap**: Step-by-step plan to take your project from zero to production
-- **Clear Justifications**: Understand WHY a stack is recommended for YOUR specific project
-- **Cost Estimates**: Know exactly what your hosting will cost monthly
+---
 
-## Tech Stack (StackAdvisor itself)
+## Producto
 
-- **Frontend**: Next.js 14 + React + TypeScript
-- **Styling**: TailwindCSS with custom brand colors
-- **Backend**: Next.js API Routes
-- **Decision Engine**: Custom JavaScript logic (lib/decision_logic.js)
-- **Hosting**: Vercel (recommended)
-- **Analytics**: Vercel Analytics (optional)
+### Flujo gratuito
+1. Cuestionario de 13 preguntas (con skip logic para no-técnicos, shortcuts de teclado)
+2. Motor de recomendación evalúa 35 stacks → recomienda el óptimo con justificación
+3. Resultados: stack, alternativas, roadmap 12 semanas, estimador de costos, prompts de IA
+4. Email lead magnet: envía el stack recomendado al correo del usuario (Resend)
 
-## Project Structure
+### Blueprint premium ($30 LATAM / $40 Global)
+1. Cuestionario extendido de 30 preguntas sobre el proyecto
+2. Gemini 1.5 Flash genera un Blueprint completo en ~2 minutos
+3. Chat contextualizado de IA con 50 mensajes incluidos
+4. Persistencia en `localStorage` — permanente en el dispositivo
+5. Descarga como `.txt` y sesión 1:1 de 30 min incluida
+
+---
+
+## Tech stack
+
+| Capa | Tecnología |
+|------|-----------|
+| Framework | Next.js 14 (App Router) |
+| Lenguaje | TypeScript |
+| Estilos | Tailwind CSS |
+| IA | Google Gemini 1.5 Flash (`@google/generative-ai`) |
+| Pagos | Lemon Squeezy (checkout overlay con `lemon.js`) |
+| Email | Resend |
+| Analytics | Vercel Analytics |
+| Hosting | Vercel |
+| Motor de recomendación | `lib/decision_logic.js` (CommonJS, rule-based scoring) |
+
+---
+
+## Estructura del proyecto
 
 ```
 StackAdvisor/
 ├── app/
-│   ├── page.tsx                 # Landing page
-│   ├── questionnaire/page.tsx   # Interactive questionnaire
-│   ├── results/page.tsx         # Results & recommendations
-│   ├── api/recommend/route.ts   # API endpoint for recommendations
-│   ├── layout.tsx               # Root layout
-│   └── globals.css              # Global styles
+│   ├── page.tsx                        # Landing page con testimonios y CTA
+│   ├── questionnaire/page.tsx          # Cuestionario gratuito (13 preguntas)
+│   ├── results/page.tsx                # Resultados + email capture
+│   ├── stacks/
+│   │   ├── page.tsx                    # Grid de los 35 stacks con filtros
+│   │   └── [id]/page.tsx              # Página de detalle por stack (SSG)
+│   ├── compare/page.tsx                # Comparador de hasta 4 stacks
+│   ├── blueprint/
+│   │   ├── page.tsx                    # Landing de venta del Blueprint
+│   │   ├── ejemplo/page.tsx            # Ejemplo anonimizado (muestra el producto)
+│   │   ├── extended/page.tsx           # Cuestionario extendido de 30 preguntas
+│   │   ├── result/page.tsx             # Blueprint generado + chat de IA
+│   │   └── success/page.tsx            # Post-pago (redirige a extended)
+│   ├── api/
+│   │   ├── recommend/route.ts          # Motor de recomendación
+│   │   ├── email/route.ts              # Lead magnet por email (Resend)
+│   │   ├── geo/route.ts                # Geo-detección + URLs de checkout
+│   │   ├── blueprint/
+│   │   │   ├── generate/route.ts       # Generación del Blueprint con Gemini
+│   │   │   └── chat/route.ts           # Chat contextualizado post-Blueprint
+│   └── layout.tsx                      # Root layout con Analytics y lemon.js
 ├── components/
-│   ├── ProgressBar.tsx          # Questionnaire progress indicator
-│   ├── QuestionCard.tsx         # Question UI component
-│   └── Roadmap.tsx              # 12-week roadmap visualization
+│   ├── Navbar.tsx
+│   ├── Footer.tsx
+│   ├── QuestionCard.tsx                # Tarjeta de pregunta con shortcuts
+│   ├── ProgressBar.tsx
+│   ├── StacksGrid.tsx                  # Grid filtrable de stacks
+│   ├── PromptGenerator.tsx             # Generador de prompts por tipo + upsell
+│   ├── CostEstimator.tsx               # Estimador interactivo de costos
+│   ├── Roadmap.tsx                     # Visualización del roadmap 12 semanas
+│   ├── AffiliateCards.tsx              # Cards de afiliados por stack
+│   └── ThemeProvider.tsx              # Dark/light mode
 ├── lib/
-│   ├── questionnaire.json       # 13 questions structured data
-│   ├── stacks.json              # 25 tech stacks definitions
-│   ├── decision_logic.js        # Recommendation engine
-│   └── test_cases.js            # 10 test scenarios
-└── public/
+│   ├── stacks.json                     # 35 stacks definidos
+│   ├── questionnaire.json              # Preguntas del cuestionario libre
+│   ├── decision_logic.js               # Motor de scoring (CommonJS)
+│   └── affiliates.ts                   # Links de afiliados por stack
+└── docs/
+    ├── estrategia-crecimiento.md       # Roadmap de negocio y distribución
+    └── prompt-maestro-claude.md        # Prompt para trabajo de marketing con Claude
 ```
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18+
-- npm or yarn
-
-### Installation
-
-1. Clone the repository
-```bash
-git clone <your-repo-url>
-cd StackAdvisor
-```
-
-2. Install dependencies
-```bash
-npm install
-```
-
-3. Run development server
-```bash
-npm run dev
-```
-
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
-
-### Running Tests
-
-Test the decision logic engine with 10 scenarios:
-
-```bash
-npm test
-```
-
-This runs the test cases in `lib/test_cases.js` and validates that the recommendation engine works correctly.
-
-## How It Works
-
-### 1. User Flow
-
-1. User lands on homepage → clicks "Start Free Recommendation"
-2. User answers 13 questions across 4 sections:
-   - Section 1: Understand the Project (project type, timeline, team, experience)
-   - Section 2: Requirements (priority, performance, security, real-time, budget)
-   - Section 3: Technical Preferences (ecosystem, architecture, platforms)
-   - Section 4: Special Requirements (open text)
-3. User submits → API calls decision engine
-4. Results page shows:
-   - Primary recommendation with justification
-   - 2 alternative options
-   - 12-week roadmap
-   - Cost estimates
-
-### 2. Decision Engine Logic
-
-The recommendation engine (`lib/decision_logic.js`) uses a scoring system:
-
-- Base score: 50 points
-- Each matching criterion adds points (e.g., +30 for perfect project type match)
-- Mismatches subtract points (e.g., -30 for non-mobile stack when user wants mobile)
-- Top 3 highest-scoring stacks are recommended
-
-**Example Rules:**
-- IF `project_type === 'ecommerce'` AND `experience === 'non_technical'` → Recommend Shopify
-- IF `performance === 'ultra_critical'` → Recommend Go or Rust backend
-- IF `budget === 'minimal'` → Recommend Vercel + Supabase free tier
-- IF `realtime === 'realtime'` → Recommend Svelte/Elixir/Firebase
-
-### 3. 25 Tech Stacks
-
-Organized in 4 tiers:
-
-**Tier 1: Popular & Recommended** (Next.js, React+Node, Django, Flutter, etc.)
-**Tier 2: Specialized** (Go, Rust, Remix, NestJS, etc.)
-**Tier 3: Enterprise** (Spring Boot, ASP.NET, Laravel)
-**Tier 4: Specialized Needs** (Shopify, Supabase, GraphQL, Blockchain, Serverless)
-
-## Development
-
-### Adding New Stacks
-
-Edit `lib/stacks.json`:
-
-```json
-{
-  "id": "your_stack_id",
-  "name": "Your Stack Name",
-  "tier": 1,
-  "tierLabel": "Popular & Recommended",
-  "description": "...",
-  "bestFor": ["..."],
-  "technologies": { ... },
-  "pros": [...],
-  "cons": [...],
-  "tags": [...]
-}
-```
-
-### Adding New Questions
-
-Edit `lib/questionnaire.json` and add to the appropriate section.
-
-### Modifying Decision Logic
-
-Edit `lib/decision_logic.js` → `scoreStack()` function to add/modify rules.
-
-## Deployment
-
-### Deploy to Vercel (Recommended)
-
-1. Push code to GitHub
-2. Import project in [Vercel](https://vercel.com)
-3. Deploy (zero configuration needed)
-
-**Estimated cost:** $0-25/month (Vercel free tier works for MVP)
-
-### Environment Variables
-
-None required for MVP. Optional for future phases:
-- `DATABASE_URL` (for saving user results)
-- `NEXT_PUBLIC_GA_ID` (for analytics)
-
-## Roadmap
-
-### Phase 1: MVP (Current) ✅
-- Interactive questionnaire
-- Stack recommendation engine
-- 12-week roadmap generation
-- User feedback system
-
-### Phase 2: Data-Driven (Months 3-6)
-- Save user results to database
-- GitHub integration for stack popularity data
-- First paid tier ($9/mo)
-- User authentication
-
-### Phase 3: AI & Automation (Months 6-9)
-- Claude/ChatGPT integration for personalized explanations
-- Deploy assistant
-- Cost estimator
-- Premium tier ($29/mo)
-
-### Phase 4: Community (Months 9-12)
-- User success stories
-- Forum/community
-- Freelancer marketplace
-
-## Contributing
-
-This is a personal project by Santiago. Not accepting contributions at this time.
-
-## License
-
-Private. All rights reserved.
-
-## Contact
-
-Built by Santiago (Data Scientist @ Ivolution)
-For questions: [Add your contact]
 
 ---
 
-**"From ideas to reality, one developer at a time."**
+## Variables de entorno
+
+Crear `.env.local` con:
+
+```env
+# Gemini AI
+GEMINI_API_KEY=...
+
+# Lemon Squeezy (pagos)
+LEMONSQUEEZY_API_KEY=...
+LEMONSQUEEZY_VARIANT_GLOBAL=0b4b596e-15a4-49e7-a6a2-8f06cabb3286
+LEMONSQUEEZY_VARIANT_LATAM=9542ec0d-60aa-4d07-8922-552b1e4e1638
+LEMONSQUEEZY_URL_GLOBAL=https://stackadvisor.lemonsqueezy.com/checkout/buy/0b4b596e-15a4-49e7-a6a2-8f06cabb3286
+LEMONSQUEEZY_URL_LATAM=https://stackadvisor.lemonsqueezy.com/checkout/buy/9542ec0d-60aa-4d07-8922-552b1e4e1638
+
+# Email (Resend)
+RESEND_API_KEY=...
+
+# App
+NEXT_PUBLIC_APP_URL=https://stackadvisor-nu.vercel.app
+```
+
+---
+
+## Instalación local
+
+```bash
+git clone https://github.com/santiagomalak/stackadvisor-.git
+cd StackAdvisor
+npm install
+cp .env.local.example .env.local   # completar con tus keys
+npm run dev
+```
+
+Abrir [http://localhost:3000](http://localhost:3000)
+
+---
+
+## Detalles técnicos clave
+
+### Geo-detección y precios
+`/api/geo` lee el header `x-vercel-ip-country` (solo disponible en Vercel) para detectar si el usuario es de LATAM. Devuelve las URLs de checkout de Lemon Squeezy cacheadas por 1 hora.
+
+LATAM: AR, BR, MX, CO, CL, PE, VE, EC, BO, PY, UY, CR, PA, GT, HN, SV, NI, DO, CU, PR
+
+### Blueprint con Gemini
+El prompt de generación ancla los costos al presupuesto declarado por el usuario (`infra_budget`), adapta las recomendaciones al tamaño del equipo, y genera 10 secciones en markdown. El resultado se guarda en `localStorage` con clave `sa_blueprint_v1`.
+
+### Checkout Lemon Squeezy
+Se usa la clase CSS `lemonsqueezy-button` en el `<a>` + lemon.js cargado con `strategy="afterInteractive"` para abrir el overlay de pago sin abandonar la página.
+
+### Motor de recomendación
+`lib/decision_logic.js` evalúa los 35 stacks con un sistema de scoring basado en reglas. Cada respuesta del cuestionario suma o resta puntos según criterios (proyecto, experiencia, presupuesto, features requeridas). Devuelve el top 3.
+
+---
+
+## Modelo de negocio
+
+| Fuente | Detalle |
+|--------|---------|
+| Blueprint Premium | $30 USD (LATAM) / $40 USD (Global) — pago único |
+| Afiliados | Vercel, Railway, DigitalOcean, Platzi — links contextuales |
+| Sesión 1:1 | Incluida en Blueprint (a futuro: upsell separado) |
+
+---
+
+## Estado del proyecto (marzo 2026)
+
+- ✅ MVP en producción con flujo completo gratuito y premium
+- ✅ Pagos operativos con Lemon Squeezy (LATAM / Global)
+- ✅ Blueprint generado con IA + chat contextualizado
+- ✅ Email lead magnet con Resend
+- ✅ Analytics activo (Vercel Analytics)
+- ✅ Ejemplo de Blueprint público en `/blueprint/ejemplo`
+- ✅ Testimonios y prueba social en landing y blueprint
+- ⏳ Dominio propio (`stackadvisor.dev`) — pendiente
+- ⏳ Blog con SEO — pendiente
+- ⏳ Webhook de Lemon Squeezy para validar pagos — pendiente
+- ⏳ Email sequence automático post-cuestionario — pendiente
+
+Ver roadmap completo en `docs/estrategia-crecimiento.md`
+
+---
+
+## Deployment
+
+El proyecto se deploya automáticamente en Vercel al hacer push a `main`.
+
+Para deploy manual:
+```bash
+vercel --prod
+```
+
+Agregar las variables de entorno en Vercel Dashboard → Settings → Environment Variables.
+
+---
+
+Hecho por **Santiago Aragón** · [WhatsApp](https://wa.me/5493834553249)
