@@ -96,20 +96,20 @@ Crear `.env.local` con:
 
 ```env
 # Gemini AI
-GEMINI_API_KEY=...
+GEMINI_API_KEY=your_gemini_api_key
 
 # Lemon Squeezy (pagos)
-LEMONSQUEEZY_API_KEY=...
-LEMONSQUEEZY_VARIANT_GLOBAL=0b4b596e-15a4-49e7-a6a2-8f06cabb3286
-LEMONSQUEEZY_VARIANT_LATAM=9542ec0d-60aa-4d07-8922-552b1e4e1638
-LEMONSQUEEZY_URL_GLOBAL=https://stackadvisor.lemonsqueezy.com/checkout/buy/0b4b596e-15a4-49e7-a6a2-8f06cabb3286
-LEMONSQUEEZY_URL_LATAM=https://stackadvisor.lemonsqueezy.com/checkout/buy/9542ec0d-60aa-4d07-8922-552b1e4e1638
+LEMONSQUEEZY_API_KEY=your_lemonsqueezy_api_key
+LEMONSQUEEZY_VARIANT_GLOBAL=your_global_variant_uuid
+LEMONSQUEEZY_VARIANT_LATAM=your_latam_variant_uuid
+LEMONSQUEEZY_URL_GLOBAL=https://your-store.lemonsqueezy.com/checkout/buy/your_global_variant_uuid
+LEMONSQUEEZY_URL_LATAM=https://your-store.lemonsqueezy.com/checkout/buy/your_latam_variant_uuid
 
 # Email (Resend)
-RESEND_API_KEY=...
+RESEND_API_KEY=your_resend_api_key
 
 # App
-NEXT_PUBLIC_APP_URL=https://stackadvisor-nu.vercel.app
+NEXT_PUBLIC_APP_URL=https://your-production-url.vercel.app
 ```
 
 ---
