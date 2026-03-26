@@ -4,7 +4,11 @@ export const runtime = 'edge';
 export const size = { width: 32, height: 32 };
 export const contentType = 'image/png';
 
-export default function Icon() {
+export default async function Icon() {
+  const fontData = await fetch(
+    'https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZFhjQ.woff2'
+  ).then(res => res.arrayBuffer());
+
   return new ImageResponse(
     (
       <div
@@ -18,14 +22,18 @@ export default function Icon() {
           justifyContent: 'center',
           color: 'white',
           fontWeight: 800,
-          fontSize: 20,
-          fontFamily: 'sans-serif',
+          fontSize: 22,
+          fontFamily: 'Inter',
           letterSpacing: '-1px',
         }}
       >
         S
       </div>
     ),
-    { width: 32, height: 32 }
+    {
+      width: 32,
+      height: 32,
+      fonts: [{ name: 'Inter', data: fontData, weight: 800 }],
+    }
   );
 }
